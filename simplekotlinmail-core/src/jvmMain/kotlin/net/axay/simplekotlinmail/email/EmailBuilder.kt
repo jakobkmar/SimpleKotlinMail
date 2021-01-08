@@ -5,30 +5,30 @@ import org.simplejavamail.api.email.EmailPopulatingBuilder
 import org.simplejavamail.email.EmailBuilder
 
 /**
- * Open a new net.axay.simplekotlinmail.email builder.
- * This function automatically builds the net.axay.simplekotlinmail.email and
+ * Open a new email builder.
+ * This function automatically builds the email and
  * returns it.
  */
 inline fun emailBuilder(builder: EmailPopulatingBuilder.() -> Unit): Email =
     EmailBuilder.startingBlank().apply(builder).buildEmail()
 
 /**
- * Copy this net.axay.simplekotlinmail.email and open a new net.axay.simplekotlinmail.email builder.
- * This function automatically builds the new net.axay.simplekotlinmail.email and
+ * Copy this email and open a new email builder.
+ * This function automatically builds the new email and
  * returns it.
  */
 inline fun Email.copy(builder: EmailPopulatingBuilder.() -> Unit): Email =
     EmailBuilder.copying(this).apply(builder).buildEmail()
 
 /**
- * Copy this net.axay.simplekotlinmail.email.
+ * Copy this email.
  */
 fun Email.copy(): Email = EmailBuilder.copying(this).buildEmail()
 
 /**
- * Reply to this net.axay.simplekotlinmail.email.
- * This functions opens a new net.axay.simplekotlinmail.email builder, automatically builds
- * the new net.axay.simplekotlinmail.email and returns it.
+ * Reply to this email.
+ * This functions opens a new email builder, automatically builds
+ * the new email and returns it.
  * @param from optional from recipient address
  * @param toAll
  */
@@ -40,9 +40,9 @@ inline fun Email.reply(
     .apply { if (from != null) from(from) }.apply(builder).buildEmail()
 
 /**
- * Forward this net.axay.simplekotlinmail.email.
- * This functions opens a new net.axay.simplekotlinmail.email builder, automatically builds
- * the new net.axay.simplekotlinmail.email and returns it.
+ * Forward this email.
+ * This functions opens a new email builder, automatically builds
+ * the new email and returns it.
  * @param from optional from recipient address
  */
 inline fun Email.forward(from: String? = null, builder: EmailPopulatingBuilder.() -> Unit): Email =
