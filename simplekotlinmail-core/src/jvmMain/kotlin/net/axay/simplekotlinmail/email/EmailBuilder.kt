@@ -47,15 +47,3 @@ inline fun Email.reply(
  */
 inline fun Email.forward(from: String? = null, builder: EmailPopulatingBuilder.() -> Unit): Email =
     EmailBuilder.forwarding(this).apply { if (from != null) from(from) }.apply(builder).buildEmail()
-
-fun jo(email: Email) {
-    email.reply {
-
-    }
-    email.copy {
-
-    }
-    email.reply(toAll = true) {
-        appendText("")
-    }
-}
