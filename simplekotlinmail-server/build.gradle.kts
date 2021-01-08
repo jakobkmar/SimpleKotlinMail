@@ -18,7 +18,7 @@ kotlin {
 
             dependencies {
 
-
+                implementation(project(":${rootProject.name}-core"))
 
             }
 

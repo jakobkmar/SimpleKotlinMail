@@ -1,12 +1,6 @@
 @file:Suppress("UNUSED_VARIABLE")
 
 /**
- * BUILD CONSTANTS
- */
-
-val simpleJavaMailVersion = "6.4.4"
-
-/**
  * PLUGINS
  */
 
@@ -24,9 +18,7 @@ kotlin {
 
             dependencies {
 
-                // SIMPLE JAVA MAIL
-                api("org.simplejavamail:simple-java-mail:$simpleJavaMailVersion")
-                api("org.simplejavamail:smime-module:$simpleJavaMailVersion")
+                implementation(project(":${rootProject.name}-core"))
 
             }
 
