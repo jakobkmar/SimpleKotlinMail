@@ -7,4 +7,4 @@ import javax.mail.internet.MimeMessage
 /**
  * Convert this MimeMessage to an Email instance.
  */
-fun MimeMessage.toEmail() = EmailConverter.mimeMessageToEmail(this)
+val MimeMessage.email get() = EmailConverter.mimeMessageToEmail(this)
