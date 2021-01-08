@@ -27,6 +27,7 @@ kotlin {
                 // SIMPLE JAVA MAIL
                 api("org.simplejavamail:simple-java-mail:$simpleJavaMailVersion")
                 api("org.simplejavamail:smime-module:$simpleJavaMailVersion")
+                api("org.simplejavamail:batch-module:$simpleJavaMailVersion")
 
                 // COROUTINES
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
