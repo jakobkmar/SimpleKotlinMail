@@ -34,7 +34,7 @@ Send that email:
 suspend fun main() = email.send()
 ```
 
-or end that email with async callbacks:
+or send that email with async callbacks:
 
 ```kotlin
 suspend fun main() = email.send(
