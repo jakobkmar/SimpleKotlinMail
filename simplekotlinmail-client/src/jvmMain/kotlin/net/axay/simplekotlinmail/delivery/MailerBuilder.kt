@@ -22,10 +22,10 @@ inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBui
  * returns it.
  */
 inline fun mailerBuilder(
-    host: String?,
-    port: Int?,
-    username: String?,
-    password: String?,
+    host: String? = null,
+    port: Int? = null,
+    username: String? = null,
+    password: String? = null,
     builder: MailerRegularBuilderImpl.() -> Unit = {}
 ): Mailer = MailerBuilder
     .withSMTPServer(host, port, username, password)
