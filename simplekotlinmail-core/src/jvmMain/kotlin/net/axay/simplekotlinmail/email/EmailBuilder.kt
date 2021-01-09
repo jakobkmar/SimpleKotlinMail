@@ -45,5 +45,5 @@ inline fun Email.reply(
  * the new email and returns it.
  * @param from optional from recipient address
  */
-inline fun Email.forward(from: String? = null, builder: EmailPopulatingBuilder.() -> Unit): Email =
+inline fun Email.forward(from: String? = null, builder: EmailPopulatingBuilder.() -> Unit = {}): Email =
     EmailBuilder.forwarding(this).apply { if (from != null) from(from) }.apply(builder).buildEmail()
