@@ -10,7 +10,7 @@ import org.simplejavamail.mailer.internal.MailerRegularBuilderImpl
  * This function automatically builds the email and
  * returns it.
  */
-inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBuilderImpl.() -> Unit): Mailer =
+inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBuilderImpl.() -> Unit = {}): Mailer =
     MailerBuilder
         .withSMTPServer(smtpLoginInfo.host, smtpLoginInfo.port, smtpLoginInfo.username, smtpLoginInfo.password)
         .apply(builder)
@@ -26,7 +26,7 @@ inline fun mailerBuilder(
     port: Int?,
     username: String?,
     password: String?,
-    builder: MailerRegularBuilderImpl.() -> Unit
+    builder: MailerRegularBuilderImpl.() -> Unit = {}
 ): Mailer = MailerBuilder
     .withSMTPServer(host, port, username, password)
     .apply(builder)
