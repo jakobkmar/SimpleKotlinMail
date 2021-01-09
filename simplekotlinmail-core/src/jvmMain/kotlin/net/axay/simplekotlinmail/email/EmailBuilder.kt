@@ -21,11 +21,6 @@ inline fun Email.copy(builder: EmailPopulatingBuilder.() -> Unit): Email =
     EmailBuilder.copying(this).apply(builder).buildEmail()
 
 /**
- * Copy this email.
- */
-fun Email.copy(): Email = EmailBuilder.copying(this).buildEmail()
-
-/**
  * Reply to this email.
  * This functions opens a new email builder, automatically builds
  * the new email and returns it.
