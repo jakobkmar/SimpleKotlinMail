@@ -4,15 +4,11 @@ SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way throu
 
 **This project is still in development, but expect it to be production ready soon**
 
-****
-
 ## Features
 
 - build emails
 - send emails (you still need an external SMTP server - e.g. postfix)
 - receive and process emails
-
-****
 
 ## Quick start
 
@@ -59,8 +55,6 @@ fun main() = smtpServer {
     }
 }
 ```
-
-****
 
 ## Project information
 
