@@ -3,7 +3,6 @@ package net.axay.simplekotlinmail.delivery
 import kotlinx.coroutines.*
 import org.simplejavamail.api.email.Email
 import org.simplejavamail.api.mailer.Mailer
-import org.simplejavamail.mailer.MailerBuilder
 
 /**
  * The default mailer instance, that is used if
