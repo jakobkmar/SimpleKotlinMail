@@ -7,7 +7,7 @@ import org.simplejavamail.mailer.internal.MailerRegularBuilderImpl
 
 /**
  * Open a mailer builder.
- * This function automatically builds the net.axay.simplekotlinmail.email and
+ * This function automatically builds the email and
  * returns it.
  */
 inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBuilderImpl.() -> Unit): Mailer =
@@ -18,7 +18,7 @@ inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBui
 
 /**
  * Open a mailer builder.
- * This function automatically builds the net.axay.simplekotlinmail.email and
+ * This function automatically builds the email and
  * returns it.
  */
 inline fun mailerBuilder(
