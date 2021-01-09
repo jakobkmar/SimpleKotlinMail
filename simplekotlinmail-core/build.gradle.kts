@@ -11,7 +11,11 @@ val simpleJavaMailVersion = "6.4.4"
  */
 
 plugins {
+
     `common-build-script`
+
+    kotlin("plugin.serialization") version "1.4.21"
+
 }
 
 /**
@@ -31,6 +35,9 @@ kotlin {
 
                 // COROUTINES
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+
+                // SERIALIZATION
+                api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
 
             }
 
