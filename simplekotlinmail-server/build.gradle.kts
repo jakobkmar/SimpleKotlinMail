@@ -20,6 +20,9 @@ kotlin {
 
                 implementation(project(":${rootProject.name}-core"))
 
+                // SUBETHA SMTP
+                implementation("org.subethamail:subethasmtp:3.1.7")
+
             }
 
         }
