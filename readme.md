@@ -2,6 +2,8 @@
 
 SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way through.
 
+**This project is still in development, but expect it to be production ready soon**
+
 ****
 
 ## Features
