@@ -9,9 +9,7 @@ import org.simplejavamail.mailer.MailerBuilder
  * The default mailer instance, that is used if
  * the no other instance is provided.
  */
-val DEFAULT_MAILER: Mailer = MailerBuilder
-    .withSMTPServer("localhost", 25)
-    .buildMailer()
+val DEFAULT_MAILER = mailerBuilder("localhost", 25)
 
 /**
  * Send this email.
