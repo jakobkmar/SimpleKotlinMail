@@ -62,6 +62,24 @@ Stop the server:
 smtpServer.stop()
 ```
 
+### Convert
+
+To an email:
+```kotlin
+// EML String -> Email
+string.toEmail()
+// MimeMessage -> Email
+mimeMessage.email
+```
+
+From an email:
+```kotlin
+// Email -> MimeMessage
+email.mimeMessage
+// Email -> EML String
+email.eml
+```
+
 ## Project information
 
 This project uses [SimpleJavaMail](https://www.simplejavamail.org/) to deal with java MimeMessages in a more elegant
