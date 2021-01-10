@@ -28,3 +28,9 @@ suspend fun Email.send(
         onException(exc)
     }
 }
+
+/**
+ * Send this email synchronously.
+ * @param mailer the mailer which should be used to deliver the message
+ */
+fun Email.sendSync(mailer: Mailer = DEFAULT_MAILER) = mailer.sendMail(this)
