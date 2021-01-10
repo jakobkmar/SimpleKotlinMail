@@ -7,6 +7,8 @@ import java.util.*
 
 val githubUrl = "https://github.com/bluefireoly/SimpleKotlinMail"
 
+val repoName = "SimpleKotlinMail"
+
 val jvmVersion = JavaVersion.VERSION_11
 val jvmVersionString = jvmVersion.versionString
 
@@ -76,7 +78,7 @@ bintray {
 
     pkg.apply {
 
-        repo = rootProject.name
+        repo = repoName
         name = project.name
 
         version.name = project.version.toString()
