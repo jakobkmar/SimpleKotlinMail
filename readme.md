@@ -46,12 +46,11 @@ suspend fun main() = email.send(
 ### Server / Receive
 
 Create a custom SMTPServer:
-(*planned*)
 
 ```kotlin
 fun main() = smtpServer {
-    receive {
-        println(it.toString())
+    mailListener {
+        println(it.email.htmlText)
     }
 }
 ```
