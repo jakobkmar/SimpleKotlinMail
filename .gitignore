@@ -2,6 +2,7 @@
 .gradle/
 */.gradle/
 */build/
+build/
 
 # IntelliJ IDEA
 .idea/
