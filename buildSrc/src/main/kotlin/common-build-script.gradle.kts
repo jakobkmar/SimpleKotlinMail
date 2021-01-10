@@ -50,10 +50,14 @@ kotlin {
  * BUILD
  */
 
-// JVM VERSION
 
-java.sourceCompatibility = jvmVersion
-java.targetCompatibility = jvmVersion
+java {
+    java.sourceCompatibility = jvmVersion
+    java.targetCompatibility = jvmVersion
+
+    withSourcesJar()
+    withJavadocJar()
+}
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = jvmVersionString
