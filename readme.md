@@ -10,6 +10,8 @@ SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way throu
 
 ## Quick start
 
+Add the [required dependencies](https://github.com/bluefireoly/SimpleKotlinMail/wiki/Dependencies-(Gradle)).
+
 ### Build
 
 Build an email:
