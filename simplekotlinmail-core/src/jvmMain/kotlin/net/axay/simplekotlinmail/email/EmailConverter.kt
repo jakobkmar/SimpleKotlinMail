@@ -4,10 +4,19 @@ import org.simplejavamail.api.email.Email
 import org.simplejavamail.converter.EmailConverter
 import javax.mail.internet.MimeMessage
 
+// TO EMAIL
+
 /**
  * Convert this MimeMessage to an Email instance.
  */
 val MimeMessage.email: Email get() = EmailConverter.mimeMessageToEmail(this)
+
+/**
+ * Convert this string to an Email instance.
+ */
+fun String.toEmail(): Email = EmailConverter.emlToEmail(this)
+
+// FROM EMAIL
 
 /**
  * Convert this Email instance to a MimeMessage
@@ -15,6 +24,6 @@ val MimeMessage.email: Email get() = EmailConverter.mimeMessageToEmail(this)
 val Email.mimeMessage: MimeMessage get() = EmailConverter.emailToMimeMessage(this)
 
 /**
- * Convert this string to an Email instance.
+ * Convert this Email instance to an eml string
  */
-fun String.toEmail(): Email = EmailConverter.emlToEmail(this)
+val Email.eml: String get() = EmailConverter.emailToEML(this)
