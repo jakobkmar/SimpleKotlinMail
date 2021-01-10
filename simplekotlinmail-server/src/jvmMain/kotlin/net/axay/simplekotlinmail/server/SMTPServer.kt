@@ -1,5 +1,7 @@
 package net.axay.simplekotlinmail.server
 
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.subethamail.smtp.server.SMTPServer
 
 /**
@@ -11,7 +13,15 @@ fun smtpServer(port: Int = 25, builder: SMTPServer.Builder.() -> Unit = {}): SMT
     SMTPServer.port(port).apply(builder).build()
 
 /**
- * Set the MailListener for this SMTPServer.
+ * @param keepAlive true, if the current thread should be kept alive until
+ * the SMTPServer was shut down
+ * @see SMTPServer.start
  */
-fun SMTPServer.Builder.mailListener(listener: MailListener): SMTPServer.Builder =
-    messageHandlerFactory(MailHandlerFactory(listener))
+fun SMTPServer.start(keepAlive: Boolean): SMTPServer {
+    if (keepAlive)
+        start()
+    else GlobalScope.launch {
+        start()
+    }
+    return this
+}
