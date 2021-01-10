@@ -45,58 +45,9 @@ plugins {
 kotlin {
     jvm {
         withJava()
-    }
-}
+        mavenPublication {
 
-/*
- * BUILD
- */
-
-
-java {
-    java.sourceCompatibility = jvmVersion
-    java.targetCompatibility = jvmVersion
-
-    withSourcesJar()
-    withJavadocJar()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = jvmVersionString
-}
-
-/*
- * PUBLISHING
- */
-
-bintray {
-
-    user = project.findProperty("bintray.username") as? String ?: ""
-    key = project.findProperty("bintray.api_key") as? String ?: ""
-
-    setPublications(project.name)
-
-    pkg.apply {
-
-        repo = repoName
-        name = project.name
-
-        version.name = project.version.toString()
-        version.released = Date().toString()
-
-        setLicenses("Apache-2.0")
-
-        vcsUrl = githubUrl
-
-    }
-
-}
-
-publishing {
-    publications {
-        create<MavenPublication>(project.name) {
-
-            from(components["java"])
+            getComponents()["java"]
 
             this.groupId = project.group.toString()
             this.artifactId = project.name
@@ -119,6 +70,49 @@ publishing {
 
         }
     }
+}
+
+/*
+ * BUILD
+ */
+
+java {
+    java.sourceCompatibility = jvmVersion
+    java.targetCompatibility = jvmVersion
+
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = jvmVersionString
+}
+
+/*
+ * PUBLISHING
+ */
+
+bintray {
+
+    user = project.findProperty("bintray.username") as? String ?: ""
+    key = project.findProperty("bintray.api_key") as? String ?: ""
+
+    setPublications("jvm")
+
+    pkg.apply {
+
+        repo = repoName
+        name = project.name
+
+        version.name = project.version.toString()
+        version.released = Date().toString()
+
+        setLicenses("Apache-2.0")
+
+        vcsUrl = githubUrl
+
+    }
+
 }
 
 /*
