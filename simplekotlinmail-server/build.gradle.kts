@@ -21,7 +21,7 @@ kotlin {
                 implementation(project(":${rootProject.name}-core"))
 
                 // SUBETHA SMTP
-                implementation("com.github.davidmoten:subethasmtp:5.2.8")
+                api("com.github.davidmoten:subethasmtp:5.2.8")
 
             }
 
