@@ -1,7 +1,5 @@
 package net.axay.simplekotlinmail.server
 
-import org.subethamail.smtp.MessageHandler
-import org.subethamail.smtp.helper.SimpleMessageListener
 import org.subethamail.smtp.server.SMTPServer
 
 /**
