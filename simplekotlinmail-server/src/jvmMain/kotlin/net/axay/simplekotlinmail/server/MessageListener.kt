@@ -33,7 +33,7 @@ class MailHandler(
     override fun done() = Unit
 }
 
-interface MailListener {
+fun interface MailListener {
     /**
      * This function will be called when a mail
      * was received.
