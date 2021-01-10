@@ -2,8 +2,6 @@
 
 SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way through.
 
-**This project is still in development, but expect it to be production ready soon**
-
 ## Features
 
 - build emails
@@ -31,10 +29,13 @@ val email = emailBuilder {
 Send that email:
 
 ```kotlin
+// asynchronously
 suspend fun main() = email.send()
+// or synchronously
+suspend  fun main() = email.sendSync()
 ```
 
-or send that email with async callbacks:
+or send that email with asynchronous callbacks:
 
 ```kotlin
 suspend fun main() = email.send(
@@ -48,11 +49,17 @@ suspend fun main() = email.send(
 Create a custom SMTPServer:
 
 ```kotlin
-fun main() = smtpServer {
+val smtpServer = smtpServer {
     mailListener {
-        println(it.email.htmlText)
+        println(it.email.plainText)
     }
-}
+}.start(keepAlive = true)
+```
+
+Stop the server:
+
+```kotlin
+smtpServer.stop()
 ```
 
 ## Project information
