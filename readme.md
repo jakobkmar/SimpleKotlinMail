@@ -82,6 +82,20 @@ email.mimeMessage
 email.eml
 ```
 
+### HTML
+
+Inside the email builder, you can easily access kotlinx.html:
+```kotlin
+emailBuilder {
+    withHTML {
+        div {
+            h1 { +"Really important question!" }
+            p { +"Hey, how are you doing?" }
+        }
+    }
+}
+```
+
 ## Project information
 
 This project uses [SimpleJavaMail](https://www.simplejavamail.org/) to deal with java MimeMessages in a more elegant
