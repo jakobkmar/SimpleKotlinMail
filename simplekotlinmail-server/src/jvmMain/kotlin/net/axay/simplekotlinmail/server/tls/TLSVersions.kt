@@ -1,6 +1,6 @@
 package net.axay.simplekotlinmail.server.tls
 
-enum class SMTPProtocolVersions(
+enum class TLSVersions(
     val protocolVersion: String,
     val cipherSuites: Array<String>
 ) {
