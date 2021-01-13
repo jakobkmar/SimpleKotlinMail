@@ -22,8 +22,8 @@ inline fun mailerBuilder(smtpLoginInfo: SMTPLoginInfo, builder: MailerRegularBui
  * returns it.
  */
 inline fun mailerBuilder(
-    host: String? = null,
-    port: Int? = null,
+    host: String = "localhost",
+    port: Int = 25,
     username: String? = null,
     password: String? = null,
     builder: MailerRegularBuilderImpl.() -> Unit = {}
