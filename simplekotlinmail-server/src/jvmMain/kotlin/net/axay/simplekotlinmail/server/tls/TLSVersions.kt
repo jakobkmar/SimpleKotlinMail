@@ -1,5 +1,13 @@
 package net.axay.simplekotlinmail.server.tls
 
+/**
+ * This enum lists the different TLS versions
+ * which can be used together with [javax.net.ssl].
+ *
+ * @param protocolVersion The string representing the TLS version.
+ * @param cipherSuites A list of strings representing the cipher suites which should be used
+ * for that version. The names refer to the names of the enum values from [sun.security.ssl.CipherSuite].
+ */
 enum class TLSVersions(
     val protocolVersion: String,
     val cipherSuites: List<String>
