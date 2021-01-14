@@ -18,8 +18,8 @@ enum class TLSVersions(
     TLS_1_3(
         "TLSv1.3",
         listOf(
-            "TLS_AES_128_GCM_SHA256",
-            "TLS_AES_256_GCM_SHA384"
+            "TLS_AES_256_GCM_SHA384",
+            "TLS_AES_128_GCM_SHA256"
         )
     ),
 
