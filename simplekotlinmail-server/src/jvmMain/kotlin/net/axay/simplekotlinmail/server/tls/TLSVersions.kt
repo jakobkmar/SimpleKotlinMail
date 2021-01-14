@@ -7,6 +7,8 @@ package net.axay.simplekotlinmail.server.tls
  * @param protocolVersion The string representing the TLS version.
  * @param cipherSuites A list of strings representing the cipher suites which should be used
  * for that version. The names refer to the names of the enum values from [sun.security.ssl.CipherSuite].
+ *
+ * See: https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml
  */
 enum class TLSVersions(
     val protocolVersion: String,
