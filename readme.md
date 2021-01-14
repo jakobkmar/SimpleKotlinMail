@@ -96,6 +96,32 @@ emailBuilder {
 }
 ```
 
+### TLS
+
+First, SimpleKotlinMail provides a utility function to easily create an SSLContext:
+```kotlin
+val sslContext = TLSContext(
+    File("path/to/keystore"), "passphrase",
+    File("path/to/truststore"), "passphrase"
+)
+```
+
+Now you can use that context to set up TLS for your SMTP server:
+```kotlin
+smtpServer {
+    requireTLS() // or enableTLS()
+
+    setupTLS(sslContext)
+    // or with additional parameters
+    setupTLS(
+        sslContext,
+        protocolVersions = listOf(TLSVersions.TLS_1_3),
+        requireClientAuth = true
+    )
+}
+```
+_Currently, TLSv1.3 and TLSv1.2 are enabled by default._
+
 ## Project information
 
 This project uses [SimpleJavaMail](https://www.simplejavamail.org/) to deal with java MimeMessages in a more elegant
