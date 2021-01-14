@@ -5,19 +5,13 @@ import org.simplejavamail.api.email.Email
 import org.simplejavamail.api.mailer.Mailer
 
 /**
- * The default mailer instance, that is used if
- * the no other instance is provided.
- */
-val DEFAULT_MAILER = mailerBuilder("localhost", 25)
-
-/**
  * Send this email.
  * @param mailer the mailer which should be used to deliver the message
  * @param onException optional callback which should be executed if an error occurs
  * @param onSuccess optional callback which should be executed if the message was delivered successfully
  */
 suspend fun Email.send(
-    mailer: Mailer = DEFAULT_MAILER,
+    mailer: Mailer = MailerManager.defaultMailer,
     onException: suspend (Exception) -> Unit = {},
     onSuccess: suspend () -> Unit = {}
 ) = withContext(Dispatchers.IO) {
@@ -33,4 +27,4 @@ suspend fun Email.send(
  * Send this email synchronously.
  * @param mailer the mailer which should be used to deliver the message
  */
-fun Email.sendSync(mailer: Mailer = DEFAULT_MAILER) = mailer.sendMail(this)
+fun Email.sendSync(mailer: Mailer = MailerManager.defaultMailer) = mailer.sendMail(this)
