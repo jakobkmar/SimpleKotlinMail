@@ -25,8 +25,15 @@ fun SMTPServer.Builder.setupTLS(
         ) as SSLSocket).apply {
             useClientMode = false
 
-            enabledProtocols = protocolVersions.mapTo(LinkedHashSet()) { it.protocolVersion }.toTypedArray()
-            enabledCipherSuites = protocolVersions.flatMapTo(LinkedHashSet()) { it.cipherSuites }.toTypedArray()
+            enabledProtocols = (
+                protocolVersions
+                    .mapTo(LinkedHashSet()) { it.protocolVersion } intersect supportedProtocols.toList()
+            ).toTypedArray()
+
+            enabledCipherSuites = (
+                protocolVersions
+                    .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
+            ).toTypedArray()
 
             needClientAuth = requireClientAuth
 
