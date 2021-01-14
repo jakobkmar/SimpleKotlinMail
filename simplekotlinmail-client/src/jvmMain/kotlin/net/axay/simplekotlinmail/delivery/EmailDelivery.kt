@@ -22,7 +22,7 @@ suspend fun Email.send(
     onSuccess: suspend () -> Unit = {}
 ) = withContext(Dispatchers.IO) {
     try {
-        mailer.sendMail(this@send)
+        mailer.sendMail(this@send, false)
         onSuccess()
     } catch (exc: Exception) {
         onException(exc)
