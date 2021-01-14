@@ -34,7 +34,7 @@ Send that email:
 // asynchronously
 suspend fun main() = email.send()
 // or synchronously
-suspend fun main() = email.sendSync()
+fun main() = email.sendSync()
 ```
 
 or send that email with asynchronous callbacks:
