@@ -120,7 +120,7 @@ smtpServer {
     )
 }
 ```
-_Currently, TLSv1.3 and TLSv1.2 are enabled by default._
+_Currently, TLSv1.3 and TLSv1.2 are enabled by default, but you can change that (example above)._
 
 ## Project information
 
