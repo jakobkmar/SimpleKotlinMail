@@ -1,6 +1,6 @@
-# SimpleKotlinMail
+<img src="simplekotlinmail_logo.svg" width="500">
 
-SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way through.
+_SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way through._
 
 ## Features
 
