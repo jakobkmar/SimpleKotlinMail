@@ -1,10 +1,6 @@
 @file:Suppress("UNUSED_VARIABLE")
 
-/**
- * BUILD CONSTANTS
- */
-
-val simpleJavaMailVersion = "6.4.4"
+import Common_build_script_gradle.*
 
 /**
  * PLUGINS
@@ -29,8 +25,8 @@ kotlin {
             dependencies {
 
                 // SIMPLE JAVA MAIL
-                api("org.simplejavamail:simple-java-mail:$simpleJavaMailVersion")
-                api("org.simplejavamail:smime-module:$simpleJavaMailVersion")
+                api("org.simplejavamail:simple-java-mail:${Versions.simpleJavaMail}")
+                api("org.simplejavamail:smime-module:${Versions.simpleJavaMail}")
 
                 // COROUTINES
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
