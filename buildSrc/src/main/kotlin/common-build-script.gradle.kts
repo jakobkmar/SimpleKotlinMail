@@ -13,7 +13,7 @@ val jvmVersion = JavaVersion.VERSION_11
 val jvmVersionString = jvmVersion.versionString
 
 object Versions {
-    val simpleJavaMail = "6.4.4"
+    const val simpleJavaMail = "6.4.4"
 }
 
 /*
