@@ -12,6 +12,10 @@ val repoName = "SimpleKotlinMail"
 val jvmVersion = JavaVersion.VERSION_11
 val jvmVersionString = jvmVersion.versionString
 
+object Versions {
+    val simpleJavaMail = "6.4.4"
+}
+
 /*
  * PROJECT
  */
@@ -116,8 +120,8 @@ bintray {
 }
 
 /*
-* EXTENSIONS
-*/
+ * EXTENSIONS
+ */
 
 val JavaVersion.versionString: String get() = if (majorVersion.toInt() <= 10) "1.$majorVersion" else majorVersion
 
