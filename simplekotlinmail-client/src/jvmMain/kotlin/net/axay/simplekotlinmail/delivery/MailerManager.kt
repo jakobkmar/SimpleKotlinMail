@@ -18,4 +18,24 @@ object MailerManager {
             DEFAULT_MAILER = value
         }
 
+    private val registeredMailers = HashSet<Mailer>()
+
+    /**
+     * Register this mailer instance.
+     *
+     * Note that mailer instances built with the mailerBuilder
+     * are registered automatically.
+     */
+    fun registerMailer(mailer: Mailer) = registeredMailers.add(mailer)
+
+    /**
+     * Shutdown all registered mailers.
+     */
+    fun shutdownMailers() {
+        registeredMailers.removeAll {
+            it.shutdownConnectionPool()
+            true
+        }
+    }
+
 }
