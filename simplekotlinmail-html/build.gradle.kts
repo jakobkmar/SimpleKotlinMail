@@ -20,8 +20,8 @@ kotlin {
 
                 implementation(project(":${rootProject.name}-core"))
 
-                // SUBETHA SMTP
-                api("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.1")
+                // kotlinx.html
+                api("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
 
             }
 
