@@ -27,4 +27,6 @@ inline fun mailerBuilder(
 ): Mailer = MailerBuilder
     .withSMTPServer(host, port, username, password)
     .apply(builder)
-    .buildMailer()
+    .buildMailer().apply {
+        MailerManager.registerMailer(this)
+    }
