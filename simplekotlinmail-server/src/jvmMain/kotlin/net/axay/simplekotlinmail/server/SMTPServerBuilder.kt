@@ -7,3 +7,9 @@ import org.subethamail.smtp.server.SMTPServer
  */
 fun SMTPServer.Builder.mailListener(listener: MailListener): SMTPServer.Builder =
     messageHandlerFactory(MailHandlerFactory(listener))
+
+class SMTPServerBuilder internal constructor(port: Int) {
+
+    internal val builder: SMTPServer.Builder = SMTPServer.port(port)
+
+}
