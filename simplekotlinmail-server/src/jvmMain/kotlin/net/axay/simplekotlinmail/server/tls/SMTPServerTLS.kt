@@ -1,6 +1,6 @@
 package net.axay.simplekotlinmail.server.tls
 
-import org.subethamail.smtp.server.SMTPServer
+import net.axay.simplekotlinmail.server.SMTPServerBuilder
 import java.net.InetSocketAddress
 import javax.net.ssl.SSLContext
 import javax.net.ssl.SSLSocket
@@ -9,34 +9,41 @@ import javax.net.ssl.SSLSocket
  * Setup TLS for this smtp server.
  *
  * @param tlsContext The SSLContext for creating a SSLSocket. Use [TLSContext] to easily create a new context
+ * @param requireTLS If true, TLS required for every mail exchange.
  * @param protocolVersions The TLS protocol versions you wish to enable.
  * @param requireClientAuth [SSLSocket.setNeedClientAuth]
- * @param builder (optional) Use this builder to configure the SSLSocket
+ * @param socketBuilder (optional) Use this builder to configure the SSLSocket
  */
-fun SMTPServer.Builder.setupTLS(
+fun SMTPServerBuilder.setupTLS(
     tlsContext: SSLContext,
+    requireTLS: Boolean = false,
     protocolVersions: List<TLSVersions> = listOf(TLSVersions.TLS_1_3, TLSVersions.TLS_1_2),
     requireClientAuth: Boolean = true,
-    builder: SSLSocket.() -> Unit = {}
-): SMTPServer.Builder =
-    startTlsSocketFactory { socketIn ->
+    socketBuilder: (SSLSocket.() -> Unit)? = null
+) {
+
+    if (requireTLS) builder.requireTLS() else builder.enableTLS()
+
+    builder.startTlsSocketFactory { socketIn ->
         (tlsContext.socketFactory.createSocket(
             socketIn, (socketIn.remoteSocketAddress as InetSocketAddress).hostString, socketIn.port, true
         ) as SSLSocket).apply {
             useClientMode = false
 
             enabledProtocols = (
-                protocolVersions
-                    .mapTo(LinkedHashSet()) { it.protocolVersion } intersect supportedProtocols.toList()
-            ).toTypedArray()
+                    protocolVersions
+                        .mapTo(LinkedHashSet()) { it.protocolVersion } intersect supportedProtocols.toList()
+                    ).toTypedArray()
 
             enabledCipherSuites = (
-                protocolVersions
-                    .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
-            ).toTypedArray()
+                    protocolVersions
+                        .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
+                    ).toTypedArray()
 
             needClientAuth = requireClientAuth
 
-            builder(this)
+            socketBuilder?.invoke(this)
         }
     }
+
+}
