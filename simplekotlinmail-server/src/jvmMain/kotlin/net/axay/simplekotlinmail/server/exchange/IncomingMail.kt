@@ -1,4 +1,4 @@
-package net.axay.simplekotlinmail.server
+package net.axay.simplekotlinmail.server.exchange
 
 import org.simplejavamail.api.email.Email
 import org.subethamail.smtp.MessageContext
