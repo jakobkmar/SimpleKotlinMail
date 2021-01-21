@@ -1,5 +1,6 @@
 package net.axay.simplekotlinmail.server
 
+import net.axay.simplekotlinmail.server.exchange.IncomingMail
 import org.simplejavamail.converter.EmailConverter
 import org.subethamail.smtp.MessageContext
 import org.subethamail.smtp.MessageHandler
