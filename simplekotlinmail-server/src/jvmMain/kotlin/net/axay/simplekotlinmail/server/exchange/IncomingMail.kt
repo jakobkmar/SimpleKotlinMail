@@ -19,10 +19,17 @@ class IncomingMail internal constructor(
     private var ifTooMuchData = false
     private var tooMuchDataMessage: String? = null
 
+    /**
+     * Set a custom response success message.
+     */
     fun respondText(message: String) {
         response = message
     }
 
+    /**
+     * Reject the message if an input stream provides
+     * more data than the listener can handle
+     */
     fun tooMuchData(message: String? = null) {
         ifTooMuchData = true
         tooMuchDataMessage = message
