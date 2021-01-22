@@ -2,6 +2,7 @@ package net.axay.simplekotlinmail.server
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import net.axay.simplekotlinmail.email.emailBuilder
 import org.subethamail.smtp.server.SMTPServer
 
 /**
@@ -9,8 +10,8 @@ import org.subethamail.smtp.server.SMTPServer
  * In order to start this instance, call [SMTPServer.start]
  * @see SMTPServer
  */
-fun smtpServer(port: Int = 25, builder: SMTPServer.Builder.() -> Unit = {}): SMTPServer =
-    SMTPServer.port(port).apply(builder).build()
+fun smtpServer(port: Int = 25, builder: SMTPServerBuilder.() -> Unit = {}): SMTPServer =
+    SMTPServerBuilder(port).apply(builder).build()
 
 /**
  * @param keepAlive true, if the current thread should be kept alive until
