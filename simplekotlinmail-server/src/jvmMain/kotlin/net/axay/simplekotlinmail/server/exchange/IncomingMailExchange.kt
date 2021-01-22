@@ -14,12 +14,18 @@ abstract class IncomingMailExchange(val context: MessageContext) {
     private var dropConnectionMessage: String? = null
     private var dropConnectionCode: Int? = null
 
+    /**
+     * Reject this message.
+     */
     fun reject(message: String? = null, statusCode: Int? = null) {
         ifReject = true
         rejectMessage = message
         rejectCode = statusCode
     }
 
+    /**
+     * Drop the connection.
+     */
     fun dropConnection(message: String? = null, statusCode: Int? = null) {
         ifDropConnection = true
     }
