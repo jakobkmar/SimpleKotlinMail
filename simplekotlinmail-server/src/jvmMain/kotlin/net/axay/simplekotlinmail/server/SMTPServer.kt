@@ -2,7 +2,6 @@ package net.axay.simplekotlinmail.server
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import net.axay.simplekotlinmail.email.emailBuilder
 import org.subethamail.smtp.server.SMTPServer
 
 /**
