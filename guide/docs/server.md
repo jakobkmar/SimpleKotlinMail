@@ -47,7 +47,7 @@ maxRecipients = 4000 // (default is 1000)
 maxConnections = 2000 // (default is 1000)
 ```
 
-- `prefferedMaxMessageSize` The maximum size of a message. This **won't be enforced**, this is just an information for the connected client.
+- `prefferedMaxMessageSize` The maximum size of a message. This won't be enforced, this is just an information for the connected client.
 ```kotlin
 prefferedMaxMessageSize = 8000 // (default is null)
 ```
