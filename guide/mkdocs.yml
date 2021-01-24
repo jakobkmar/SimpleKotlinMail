@@ -4,4 +4,11 @@ theme:
   name: mkdocs
   hljs_languages:
     - kotlin
-  hljs_style: grayscale
+    - groovy
+  hljs_style: atom-one-light
+
+nav:
+  - Home: index.md
+  - Setup:
+    - Setup using Gradle: setup_gradle.md
+  - Server: server.md
