@@ -1,7 +1,7 @@
 # Welcome to SimpleKotlinMail
 
 SimpleKotlinMail is a Kotlin Email API - coroutine based, easy to use and modern!
-You can use it for both clientside and serverside projects.
+You can use it for both clientside and serverside projects, meaning you can **send** and **receive** emails.
 
 ### Coroutines
 
@@ -19,3 +19,7 @@ Additionally, the API is typesafe.
 ## Links
 
 - [GitHub](https://github.com/bluefireoly/SimpleKotlinMail) repository
+
+## Get Started
+
+Follow the [setup guide](setup_gradle.md) to get started quickly.
