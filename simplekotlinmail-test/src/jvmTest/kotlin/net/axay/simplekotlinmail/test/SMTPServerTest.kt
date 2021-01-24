@@ -21,7 +21,7 @@ class SMTPServerTest {
             val smtpServer = smtpServer {
                 mailListener {
                     println("received email: ${it.email.plainText}")
-                    assertEquals(it.email.plainText, plainText)
+                    assertEquals(it.email.plainText?.trim(), plainText)
                 }
             }
 
