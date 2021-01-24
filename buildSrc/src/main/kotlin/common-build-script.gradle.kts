@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.*
 
 /*
@@ -8,9 +7,6 @@ import java.util.*
 val githubUrl = "https://github.com/bluefireoly/SimpleKotlinMail"
 
 val repoName = "SimpleKotlinMail"
-
-val jvmVersion = JavaVersion.VERSION_11
-val jvmVersionString = jvmVersion.versionString
 
 object Versions {
     const val simpleJavaMail = "6.4.4"
@@ -81,15 +77,8 @@ kotlin {
  */
 
 java {
-    java.sourceCompatibility = jvmVersion
-    java.targetCompatibility = jvmVersion
-
     withSourcesJar()
     withJavadocJar()
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = jvmVersionString
 }
 
 /*
@@ -118,11 +107,3 @@ bintray {
     }
 
 }
-
-/*
- * EXTENSIONS
- */
-
-val JavaVersion.versionString: String get() = if (majorVersion.toInt() <= 10) "1.$majorVersion" else majorVersion
-
-fun TaskProvider<KotlinCompile>.configureJvmVersion() { get().kotlinOptions.jvmTarget = jvmVersionString }
