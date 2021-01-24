@@ -13,3 +13,4 @@ nav:
     - Setup using Gradle: setup_gradle.md
     - Setup using Maven: setup_maven.md
   - Server: server.md
+  - TLS: tls.md
