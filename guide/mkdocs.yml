@@ -10,8 +10,11 @@ theme:
 nav:
   - Home: index.md
   - Setup:
-    - Setup using Gradle: setup_gradle.md
-    - Setup using Maven: setup_maven.md
+      - Setup using Gradle: setup_gradle.md
+      - Setup using Maven: setup_maven.md
+  - Core:
+      - Core email API: core.md
+      - kotlinx.html support: html.md
   - Server: server.md
   - Client: client.md
   - TLS: tls.md
