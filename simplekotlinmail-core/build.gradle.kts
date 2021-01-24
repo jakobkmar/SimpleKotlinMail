@@ -9,6 +9,7 @@ import Common_build_script_gradle.*
 plugins {
 
     `common-build-script`
+    `java-version-script`
 
     kotlin("plugin.serialization") version "1.4.21"
 

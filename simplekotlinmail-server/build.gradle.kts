@@ -6,6 +6,7 @@
 
 plugins {
     `common-build-script`
+    `java-version-script`
 }
 
 /**
