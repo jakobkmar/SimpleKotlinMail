@@ -2,6 +2,7 @@ package net.axay.simplekotlinmail.server
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.subethamail.smtp.server.SMTPServer
 
 /**
@@ -19,9 +20,11 @@ fun smtpServer(port: Int = 25, builder: SMTPServerBuilder.() -> Unit = {}): SMTP
  */
 fun SMTPServer.start(keepAlive: Boolean): SMTPServer {
     if (keepAlive)
-        start()
-    else GlobalScope.launch {
-        start()
+        this@start.start()
+    else runBlocking {
+        GlobalScope.launch {
+            this@start.start()
+        }.join()
     }
     return this
 }
