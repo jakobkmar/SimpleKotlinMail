@@ -63,6 +63,8 @@ Go to the dedicated [TLS page](tls.md) for more details.
 
 ## Listeners
 
+With listeners, you can receive and process emails.
+
 #### Data (easiest)
 
 This listener is called last (it listens to the `DATA` command) and therefore has the most information available.
