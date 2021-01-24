@@ -67,7 +67,7 @@ With listeners, you can receive and process emails.
 
 #### Mail (easiest)
 
-This listener is called last (it listens to the `DATA` command) and therefore has the most information available.
+Listen to the `DATA` command (called last, therefore has the most information):
 ```kotlin
 mailListener {
     // get envelope data
