@@ -63,7 +63,7 @@ Go to the dedicated [TLS page](tls.md) for more details.
 
 ## Listeners
 
-With listeners, you can receive and process emails.
+With listeners, you can receive and **process emails**.
 
 #### Mail (easiest)
 
