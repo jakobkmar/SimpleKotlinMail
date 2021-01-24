@@ -1,0 +1,7 @@
+site_name: SimpleKotlinMail
+
+theme:
+  name: mkdocs
+  hljs_languages:
+    - kotlin
+  hljs_style: grayscale
