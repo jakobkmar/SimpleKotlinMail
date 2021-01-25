@@ -1,5 +1,9 @@
 package net.axay.simplekotlinmail.delivery
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import org.simplejavamail.api.mailer.Mailer
 
 object MailerManager {
@@ -31,10 +35,16 @@ object MailerManager {
     /**
      * Shutdown all registered mailers.
      */
-    fun shutdownMailers() {
-        registeredMailers.removeAll {
-            it.shutdownConnectionPool()
-            true
+    suspend fun shutdownMailers() {
+        coroutineScope {
+            val shutdownJobs = mutableSetOf<Job>()
+            registeredMailers.removeAll {
+                shutdownJobs += launch(Dispatchers.IO) {
+                    it.shutdownConnectionPool().get()
+                }
+                true
+            }
+            shutdownJobs.forEach { it.join() }
         }
     }
 
