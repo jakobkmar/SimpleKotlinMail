@@ -30,7 +30,7 @@ MailerManager.shutdownMailers()
 
 ## Send emails
 
-Easily send your [previously built email](core.md).
+Easily send your [previously built emails](core.md).
 
 ##### Using coroutines (Asynchronously)
 
