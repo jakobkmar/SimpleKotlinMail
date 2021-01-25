@@ -6,11 +6,6 @@ This SMTP server can be used to **receive** emails.
 
 To set up a new SMTP server you can use the `smtpServer` function.
 
-Create an SMTP server that does nothing and listens on port 25:
-```kotlin
-val smtpServer = smtpServer()
-```
-
 More advanced setup:
 ```kotlin
 val smtpServer = smtpServer(port = 25) {
