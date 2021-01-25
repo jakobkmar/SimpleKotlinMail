@@ -53,6 +53,11 @@ email.send(
     }
 )
 ```
+###### Suspend until completion
+
+```kotlin
+email.send(awaitCompletion = true)
+```
 
 ##### Synchronously
 
