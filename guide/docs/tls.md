@@ -36,3 +36,16 @@ setupTLS(
     // configure the SSLSocket to your liking
 }
 ```
+
+## Secure the Mailer
+
+Inside a mailer builder, you can set the transport strategy:
+
+```kotlin
+mailerBuilder {
+    // STARTTLS
+    withTransportStrategy(TransportStrategy.SMTP_TLS)
+    // or complete TLS encryption
+    withTransportStrategy(TransportStrategy.SMTPS)
+}
+```
