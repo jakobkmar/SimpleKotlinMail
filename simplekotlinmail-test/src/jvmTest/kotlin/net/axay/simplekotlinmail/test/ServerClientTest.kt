@@ -1,7 +1,8 @@
 package net.axay.simplekotlinmail.test
 
+import kotlinx.coroutines.runBlocking
 import net.axay.simplekotlinmail.delivery.MailerManager
-import net.axay.simplekotlinmail.delivery.sendSync
+import net.axay.simplekotlinmail.delivery.send
 import net.axay.simplekotlinmail.email.emailBuilder
 import net.axay.simplekotlinmail.server.smtpServer
 import net.axay.simplekotlinmail.server.start
@@ -24,7 +25,7 @@ class ServerClientTest {
     }
 
     @Test
-    fun testServer() {
+    fun testServer() = runBlocking {
 
         val smtpServer = smtpServer {
             mailListener {
@@ -35,7 +36,7 @@ class ServerClientTest {
 
         smtpServer.start(keepAlive = true)
 
-        email.sendSync()
+        email.send(awaitCompletion = true)
 
         MailerManager.shutdownMailers()
 
@@ -44,7 +45,7 @@ class ServerClientTest {
     }
 
     @Test
-    fun testServerTLS() {
+    fun testServerTLS() = runBlocking {
 
         println(File("./src/jvmTest/resources/keystore").absoluteFile.absolutePath)
 
@@ -68,7 +69,7 @@ class ServerClientTest {
 
         smtpServer.start(keepAlive = true)
 
-        email.sendSync()
+        email.send(awaitCompletion = true)
 
         MailerManager.shutdownMailers()
 
