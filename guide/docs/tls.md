@@ -25,12 +25,14 @@ smtpServer {
 }
 ```
 
+_Currently, TLSv1.3 and TLSv1.2 are enabled by default, but you can change that (example below)._
+
 or if you need more options
 ```kotlin
 setupTLS(
     tlsContext,
     requireTLS = true,
-    protocolVersions = listOf(TLSVersions.TLS_1_3, TLSVersions.TLS_1_2),
+    protocolVersions = listOf(TLSVersions.TLS_1_3),
     requireClientAuth = true
 ) {
     // configure the SSLSocket to your liking
