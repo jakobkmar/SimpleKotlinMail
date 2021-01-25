@@ -30,6 +30,8 @@ MailerManager.shutdownMailers()
 
 ## Send emails
 
+Easily send your [previously built email](core.md).
+
 ##### Using coroutines (Asynchronously)
 
 This approach allows you to send emails without blocking the current thread. These methods only work within a `CoroutineScope`.
