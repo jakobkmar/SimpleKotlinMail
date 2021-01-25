@@ -1,4 +1,7 @@
 site_name: SimpleKotlinMail
+site_description: A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects
+site_author: Jakob K
+copyright: © Copyright (2021) - Jakob K
 
 theme:
   name: mkdocs
