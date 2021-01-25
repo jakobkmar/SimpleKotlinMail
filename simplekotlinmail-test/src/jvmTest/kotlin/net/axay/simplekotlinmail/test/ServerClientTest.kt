@@ -47,8 +47,6 @@ class ServerClientTest {
     @Test
     fun testServerTLS() = runBlocking {
 
-        println(File("./src/jvmTest/resources/keystore").absoluteFile.absolutePath)
-
         val plainText = "Hey, how are you?"
 
         val smtpServer = smtpServer {
