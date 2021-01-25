@@ -56,11 +56,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../core/" class="dropdown-item">Core email API</a>
+    <a href="../core/" class="dropdown-item">Email API</a>
 </li>
                                     
 <li>
-    <a href="../html/" class="dropdown-item">kotlinx.html support</a>
+    <a href="../html/" class="dropdown-item">Kotlin HTML DSL</a>
 </li>
                                 </ul>
                             </li>
@@ -119,6 +119,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#secure-the-mailer" class="nav-link">Secure the Mailer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -150,6 +154,15 @@
     requireClientAuth = true
 ) {
     // configure the SSLSocket to your liking
+}
+</code></pre>
+<h2 id="secure-the-mailer">Secure the Mailer</h2>
+<p>Inside a mailer builder, you can set the transport strategy:</p>
+<pre><code class="language-kotlin">mailerBuilder {
+    // STARTTLS
+    withTransportStrategy(TransportStrategy.SMTP_TLS)
+    // or complete TLS encryption
+    withTransportStrategy(TransportStrategy.SMTPS)
 }
 </code></pre></div>
             </div>

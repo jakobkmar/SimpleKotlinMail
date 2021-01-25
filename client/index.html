@@ -56,11 +56,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../core/" class="dropdown-item">Core email API</a>
+    <a href="../core/" class="dropdown-item">Email API</a>
 </li>
                                     
 <li>
-    <a href="../html/" class="dropdown-item">kotlinx.html support</a>
+    <a href="../html/" class="dropdown-item">Kotlin HTML DSL</a>
 </li>
                                 </ul>
                             </li>
@@ -115,6 +115,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#send-emails" class="nav-link">Send emails</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -126,16 +130,43 @@
 <h2 id="mailer">Mailer</h2>
 <p>A mailer instance is connected to an SMTP server capable of sending emails (e.g. <a href="http://www.postfix.org/">Postfix</a>, paid services or Gmail).</p>
 <p>For a list of free SMTP servers have look into <a href="https://blog.mailtrap.io/free-smtp-servers/">this list by mailtrap</a>. If you want to configure a send-only postfix server, read <a href="https://blog.mailtrap.io/setup-smtp-server/">this tutorial</a>.</p>
-<h3 id="create-a-mailer">Create a Mailer</h3>
+<h4 id="create-a-mailer">Create a Mailer</h4>
 <pre><code class="language-kotlin">val mailer = mailerBuilder(host = &quot;your_hostname&quot;, port = 25)
 </code></pre>
-<h3 id="set-the-global-default-mailer">Set the global default Mailer</h3>
-<p>The default mailer will be used for sending emails if no specific mailer is passed as a parameter.</p>
+<h4 id="set-the-global-default-mailer">Set the global default Mailer</h4>
+<p>The default mailer will be used for sending emails <a href="#using-the-global-default-mailer">if no specific mailer is passed as a parameter</a>.</p>
 <pre><code class="language-kotlin">MailerManager.defaultMailer = mailer
 </code></pre>
-<h3 id="shutdown-all-mailers">Shutdown all Mailers</h3>
-<p>The mailer instances keep your program alive. In order to exit your program safely, you have to shutdown the mailer instances.</p>
+<h4 id="shutdown-all-mailers">Shutdown all Mailers</h4>
+<p>The mailer instances keep your program alive. In order to exit your program safely, you have to shut down the mailer instances.</p>
 <pre><code class="language-kotlin">MailerManager.shutdownMailers()
+</code></pre>
+<h2 id="send-emails">Send emails</h2>
+<p>Easily send your <a href="../core/">previously built emails</a>.</p>
+<h5 id="using-coroutines-asynchronously">Using coroutines (Asynchronously)</h5>
+<p>This approach allows you to send emails without blocking the current thread. These methods only work within a <code>CoroutineScope</code>.</p>
+<pre><code class="language-kotlin">email.send() // using the defult Mailer instance
+// or
+email.send(mailer)
+</code></pre>
+<p>With the suspending <code>send</code> function you can specify two suspending callbacks:</p>
+<pre><code class="language-kotlin">email.send(
+    onException = {
+        it.printStackTrace()
+    },
+    onSuccess = {
+        println(&quot;I just sent an email!&quot;)
+    }
+)
+</code></pre>
+<h6 id="suspend-until-completion">Suspend until completion</h6>
+<pre><code class="language-kotlin">email.send(awaitCompletion = true)
+</code></pre>
+<h5 id="synchronously">Synchronously</h5>
+<p>If you need to send your emails synchronously for some reason, you do that. This function does not provide any callbacks like onSuccess or onException - instead it will throw an exception if the action fails, otherwise (on success) it will just pass.</p>
+<pre><code class="language-kotlin">email.sendSync() // using the defult Mailer instance
+// or
+email.sendSync(mailer)
 </code></pre></div>
             </div>
         </div>

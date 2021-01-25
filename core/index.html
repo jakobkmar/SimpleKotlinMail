@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Core email API - SimpleKotlinMail</title>
+        <title>Email API - SimpleKotlinMail</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -56,11 +56,11 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Core email API</a>
+    <a href="./" class="dropdown-item active">Email API</a>
 </li>
                                     
 <li>
-    <a href="../html/" class="dropdown-item">kotlinx.html support</a>
+    <a href="../html/" class="dropdown-item">Kotlin HTML DSL</a>
 </li>
                                 </ul>
                             </li>
@@ -109,8 +109,24 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#core" class="nav-link">Core</a>
+            <li class="nav-item" data-level="1"><a href="#email-api" class="nav-link">Email API</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#create-an-email" class="nav-link">Create an email</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#copy-an-email" class="nav-link">Copy an email</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#forward-an-email" class="nav-link">Forward an email</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reply-to-an-email" class="nav-link">Reply to an email</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -118,8 +134,38 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="core">Core</h1>
-<p>TODO</p></div>
+<h1 id="email-api">Email API</h1>
+<h2 id="create-an-email">Create an email</h2>
+<p>You can create an email using the <code>emailBuilder</code> function. Inside an email builder you set everything you need.</p>
+<pre><code class="language-kotlin">val email = emailBuilder {
+    from(&quot;foo@bar.com&quot;)
+    to(&quot;info@example.org&quot;)
+
+    withSubject(&quot;Important question&quot;)
+    withPlainText(&quot;Hey, how are you today?&quot;)
+
+    // and much more
+}
+</code></pre>
+<p>A built email object is immutable.</p>
+<h3 id="send-that-email">Send that email</h3>
+<p>Go to the <a href="../client/">client page</a>.</p>
+<h2 id="copy-an-email">Copy an email</h2>
+<p>If you don't want to start blank with your email builder, you can copy another email and change it to your liking.</p>
+<pre><code class="language-kotlin">val copiedEmail = email.copy {
+    // modify the email
+}
+</code></pre>
+<h2 id="forward-an-email">Forward an email</h2>
+<pre><code class="language-kotlin">val forwardEmail = email.forward(from = &quot;forwardaddress@example.org&quot;) {
+    prependText(&quot;This is a forwarded message.&quot;)
+}
+</code></pre>
+<h2 id="reply-to-an-email">Reply to an email</h2>
+<pre><code class="language-kotlin">val replyEmail = email.reply(from = &quot;replyaddress@example.org&quot;, toAll = false) {
+    prependText(&quot;This is a reply message.&quot;)
+}
+</code></pre></div>
             </div>
         </div>
 
