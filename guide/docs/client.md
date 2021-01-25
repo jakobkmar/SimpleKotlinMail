@@ -42,7 +42,7 @@ email.send() // using the defult Mailer instance
 email.send(mailer)
 ```
 
-With the suspending `send` function you can specify two suspending callbacks:
+With the `send` function you can specify two suspending callbacks:
 ```kotlin
 email.send(
     onException = {
@@ -61,7 +61,7 @@ email.send(awaitCompletion = true)
 
 ##### Synchronously
 
-If you need to send your emails synchronously for some reason, you do that. This function does not provide any callbacks like onSuccess or onException - instead it will throw an exception if the action fails, otherwise (on success) it will just pass.
+If you need to send your emails synchronously for some reason, you can do that. This function does not provide any callbacks like onSuccess or onException - instead it will throw an exception if the action fails, otherwise (on success) it will just pass.
 
 ```kotlin
 email.sendSync() // using the defult Mailer instance
