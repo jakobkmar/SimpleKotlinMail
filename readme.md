@@ -5,12 +5,15 @@ _SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way thro
 ## Features
 
 - build emails
-- send emails (you still need an external SMTP server - e.g. postfix)
+- send emails (using an external SMTP server)
 - receive and process emails
+- TLS support
 
-## Quick start
+## To get started, visit the **[Documentation](https://bluefireoly.github.io/SimpleKotlinMail/)**.
 
-Add the [required dependencies](https://github.com/bluefireoly/SimpleKotlinMail/wiki/Dependencies-(Gradle)).
+## Examples
+
+The purpose of the following code snippets is to provide an insight into the API. However, they are not suitable for learning the API, you should use the actual documentation for this.
 
 ### Build
 
@@ -31,19 +34,7 @@ val email = emailBuilder {
 Send that email:
 
 ```kotlin
-// asynchronously
 suspend fun main() = email.send()
-// or synchronously
-fun main() = email.sendSync()
-```
-
-or send that email with asynchronous callbacks:
-
-```kotlin
-suspend fun main() = email.send(
-    onException = { it.printStackTrace() },
-    onSuccess = { println("I just sent an email!") }
-)
 ```
 
 ### Server / Receive
@@ -58,28 +49,13 @@ val smtpServer = smtpServer {
 }.start(keepAlive = true)
 ```
 
-Stop the server:
-
-```kotlin
-smtpServer.stop()
-```
-
 ### Convert
 
-To an email:
 ```kotlin
 // EML String -> Email
 string.toEmail()
 // MimeMessage -> Email
 mimeMessage.email
-```
-
-From an email:
-```kotlin
-// Email -> MimeMessage
-email.mimeMessage
-// Email -> EML String
-email.eml
 ```
 
 ### HTML
@@ -96,31 +72,9 @@ emailBuilder {
 }
 ```
 
-### TLS
+### And more
 
-First, SimpleKotlinMail provides a utility function to easily create an SSLContext:
-```kotlin
-val sslContext = TLSContext(
-    File("path/to/keystore"), "passphrase",
-    File("path/to/truststore"), "passphrase"
-)
-```
-
-Now you can use that context to set up TLS for your SMTP server:
-```kotlin
-smtpServer {
-    requireTLS() // or enableTLS()
-
-    setupTLS(sslContext)
-    // or with additional parameters
-    setupTLS(
-        sslContext,
-        protocolVersions = listOf(TLSVersions.TLS_1_3),
-        requireClientAuth = true
-    )
-}
-```
-_Currently, TLSv1.3 and TLSv1.2 are enabled by default, but you can change that (example above)._
+To learn more about SimpleKotlinMail, visit the **[Documentation](https://bluefireoly.github.io/SimpleKotlinMail/)**.
 
 ## Project information
 
