@@ -28,6 +28,8 @@ abstract class IncomingMailExchange(val context: MessageContext) {
      */
     fun dropConnection(message: String? = null, statusCode: Int? = null) {
         ifDropConnection = true
+        dropConnectionMessage = message
+        dropConnectionCode = statusCode
     }
 
     internal fun throwExceptions() {
