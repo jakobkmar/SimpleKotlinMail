@@ -44,4 +44,4 @@ emailBuilder {
 }
 ```
 
-Here kotlinx.html allows us to use the existing data we have (username and itemsBought) without the need for an additional templating language.
+Here kotlinx.html allows us to use the existing data we have (`username` and `itemsBought`) without the need for an additional templating language.
