@@ -15,14 +15,14 @@ repositories {
 Kotlin DSL
 ```kotlin
 dependencies {
-    implementation("net.axay:MODULENAME:VERSION")
+    implementation("net.axay:MODULE:VERSION")
 }
 ```
 
 or Groovy DSL
 ```groovy
 dependencies {
-    implementation 'net.axay:MODULENAME:VERSION'
+    implementation 'net.axay:MODULE:VERSION'
 }
 ```
 
