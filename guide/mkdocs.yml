@@ -13,8 +13,8 @@ nav:
       - Setup using Gradle: setup_gradle.md
       - Setup using Maven: setup_maven.md
   - Core:
-      - Core email API: core.md
-      - kotlinx.html support: html.md
+      - Email API: core.md
+      - Kotlin HTML DSL: html.md
   - Server: server.md
   - Client: client.md
   - TLS: tls.md
