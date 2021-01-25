@@ -4,7 +4,7 @@
 
 A mailer instance is connected to an SMTP server capable of sending emails (e.g. [Postfix](http://www.postfix.org/), paid services or Gmail).
 
-For a list of free SMTP servers have look into [this list by mailtrap](https://blog.mailtrap.io/free-smtp-servers/). If you want to configure a send-only postfix server, read [this tutorial](https://blog.mailtrap.io/setup-smtp-server/).
+For a list of free SMTP servers have a look into [this list by mailtrap](https://blog.mailtrap.io/free-smtp-servers/). If you want to configure a send-only postfix server, read [this tutorial](https://blog.mailtrap.io/setup-smtp-server/).
 
 #### Create a Mailer
 
