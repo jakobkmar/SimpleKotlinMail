@@ -1,14 +1,29 @@
 site_name: SimpleKotlinMail
 site_description: A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects
 site_author: Jakob K
-copyright: © Copyright (2021) - Jakob K
+copyright: Copyright © (2021) - Jakob K
 
 theme:
-  name: mkdocs
-  hljs_languages:
-    - kotlin
-    - groovy
-  hljs_style: atom-one-light
+  name: material
+  language: en
+  favicon: img/logo.png
+  icon:
+    repo: fontawesome/brands/github
+  logo: img/logo.png
+  palette:
+    scheme: preference
+    primary: deep orange
+    accent: amber
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+      toc_depth: 4
+
+repo_url: https://github.com/bluefireoly/SimpleKotlinMail
+repo_name: bluefireoly/SimpleKotlinMail
 
 nav:
   - Home: index.md
@@ -19,6 +34,6 @@ nav:
       - Email API: core.md
       - Kotlin HTML DSL: html.md
       - Convert: convert.md
-  - Server: server.md
-  - Client: client.md
+  - Server (receive): server.md
+  - Client (send): client.md
   - TLS: tls.md
