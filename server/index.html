@@ -644,11 +644,10 @@
 <p>This SMTP server can be used to <strong>receive</strong> emails.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>To set up a new SMTP server you can use the <code>smtpServer</code> function.</p>
-<p>More advanced setup:
 <div class="highlight"><pre><span></span><code><span class="k">val</span> <span class="py">smtpServer</span> <span class="p">=</span> <span class="n">smtpServer</span><span class="p">(</span><span class="n">port</span> <span class="p">=</span> <span class="m">25</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// access the SMTP server builder in here (more information below)</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>Now you can start the SMTPServer
 <div class="highlight"><pre><span></span><code><span class="c1">// keep the current thread alive (non-blocking)</span>
 <span class="n">smtpServer</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">keepAlive</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>
