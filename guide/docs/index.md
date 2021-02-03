@@ -16,10 +16,10 @@ Create emails, mailers and SMTP servers with the help of intuitive Kotlin builde
 SimpleKotlinMail hides unnecessary and overly complicated parts of the mail protocol from you.
 Additionally, the API is typesafe.
 
-## Links
-
-- [GitHub](https://github.com/bluefireoly/SimpleKotlinMail) repository
-
 ## Get Started
 
 Follow the [setup guide](setup_gradle.md) to get started quickly.
+
+## Links
+
+- [GitHub](https://github.com/bluefireoly/SimpleKotlinMail) repository
