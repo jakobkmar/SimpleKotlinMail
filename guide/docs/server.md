@@ -32,25 +32,48 @@ ___
 
 ## Optional Configuration
 
-- `maxRecipients` The maximum amount of recipients the server accepts per message.
-```kotlin
-maxRecipients = 4000 // (default is 1000)
-```
+#### Configuration variables
 
-- `maxConnections` The maximum amount of connections the server allows at once.
-```kotlin
-maxConnections = 2000 // (default is 1000)
-```
+Inside the SMTP server builder, you have access to the following configuration variables:
 
-- `prefferedMaxMessageSize` The maximum size of a message. This won't be enforced, this is just an information for the connected client.
-```kotlin
-prefferedMaxMessageSize = 8000 // (default is null)
-```
-
-- `connectionTimeout` The timeout for waiting for data on a connection.
-```kotlin
-connectionTimeout = 2 to TimeUnit.MINUTES // (default is 1 minute)
-```
+<table>
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>maxRecipients</b></td>
+            <td>
+                The maximum amount of recipients the server accepts per message. <br> <i>default</i> = <code>1000</code>
+            </td>
+        </tr>
+        <tr>
+            <td><b>maxConnections</b></td>
+            <td>
+                The maximum amount of connections the server allows at once. <br> <i>default</i> = <code>1000</code>
+            </td>
+        </tr>
+        <tr>
+            <td><b>prefferedMaxMessageSize</b></td>
+            <td>
+                The maximum size of a message. This won't be enforced, this is just an information for the connected client. <br> <i>default</i> = <code>null</code> (no limit)
+            </td>
+        </tr>
+        <tr>
+            <td><b>connectionTimeout</b></td>
+            <td>
+                The maximum size of a message. This <i>won't be enforced</i>, this is just an information for the connected client. <br> <i>default</i> = <code>1 to TimeUnit.MINUTES</code> (1 minute) <br><br>
+                The best way to set this is the following
+                ```kotlin
+                connectionTimeout = 2 to TimeUnit.MINUTES
+                ```
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### TLS (Secure connections)
 
@@ -59,6 +82,8 @@ Go to the dedicated [TLS page](tls.md) for more details.
 ## Listeners
 
 With listeners, you can receive and **process emails**.
+
+### Commands
 
 #### Mail (easiest)
 
@@ -104,7 +129,7 @@ recipientListener {
 }
 ```
 
-##### Reject Connections
+### Reject Connections
 
 You can reject connections after receiving any command. Both functions have parameters for a custom reponse and status code.
 ```kotlin
@@ -114,9 +139,9 @@ it.reject()
 it.dropConnection()
 ```
 
-##### Common
+### MessageContext
 
-You can do the following inside every callback:
+The context gives you more information about the current connection.
 ```kotlin
 // get the MessageContext
 it.context
