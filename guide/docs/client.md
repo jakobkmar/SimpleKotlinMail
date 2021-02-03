@@ -14,7 +14,7 @@ val mailer = mailerBuilder(host = "your_hostname", port = 25)
 
 #### Set the global default Mailer
 
-The default mailer will be used for sending emails [if no specific mailer is passed as a parameter](#using-the-global-default-mailer).
+The default mailer will be used for sending emails if no specific mailer is passed as a parameter.
 
 ```kotlin
 MailerManager.defaultMailer = mailer
