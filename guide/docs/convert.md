@@ -1,5 +1,7 @@
 # Convert
 
+It is easy to convert between different email representations.
+
 ## To an email object
 
 EML `String` to `Email`
