@@ -64,7 +64,7 @@ Inside the SMTP server builder, you have access to the following configuration v
         <tr>
             <td><b>connectionTimeout</b></td>
             <td>
-                The maximum size of a message. This <i>won't be enforced</i>, this is just an information for the connected client. <br> <i>default</i> = <code>1 to TimeUnit.MINUTES</code> (1 minute) <br><br>
+                The timeout for waiting for data on a connection. <br> <i>default</i> = <code>1 to TimeUnit.MINUTES</code> (1 minute) <br><br>
                 The best way to set this is the following
                 ```kotlin
                 connectionTimeout = 2 to TimeUnit.MINUTES
