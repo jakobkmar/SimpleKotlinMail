@@ -11,7 +11,7 @@ plugins {
     `common-build-script`
     `java-version-script`
 
-    kotlin("plugin.serialization") version "1.4.21"
+    kotlin("plugin.serialization") version "1.4.30"
 
 }
 
