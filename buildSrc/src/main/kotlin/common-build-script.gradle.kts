@@ -38,8 +38,6 @@ plugins {
 
     `maven-publish`
 
-    id("com.jfrog.bintray")
-
 }
 
 kotlin {
@@ -72,6 +70,18 @@ kotlin {
     }
 }
 
+publishing {
+    repositories {
+        maven("https://maven.pkg.github.com/bluefireoly/SimpleKotlinMail") {
+            name = "GitHubPackages"
+            credentials {
+                username = project.findProperty("github.username") as? String ?: ""
+                password = project.findProperty("github.api_key") as? String ?: ""
+            }
+        }
+    }
+}
+
 /*
  * BUILD
  */
@@ -85,6 +95,7 @@ java {
  * PUBLISHING
  */
 
+/*
 bintray {
 
     user = project.findProperty("bintray.username") as? String ?: ""
@@ -107,3 +118,4 @@ bintray {
     }
 
 }
+*/
