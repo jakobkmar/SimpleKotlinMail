@@ -1,5 +1,3 @@
-import java.util.*
-
 /*
  * BUILD CONSTANTS
  */
@@ -38,14 +36,47 @@ plugins {
 
     `maven-publish`
 
+    signing
+
 }
 
 kotlin {
     jvm {
         withJava()
-        mavenPublication {
+    }
+}
 
-            getComponents()["java"]
+/*
+ * BUILD
+ */
+
+@Suppress("UnstableApiUsage")
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+/*
+ * PUBLISHING
+ */
+
+signing {
+    sign(publishing.publications)
+}
+
+publishing {
+    repositories {
+        maven("https://oss.sonatype.org/service/local/staging/deploy/maven2") {
+            credentials {
+                username = property("ossrh.username") as String
+                password = property("ossrh.password") as String
+            }
+        }
+    }
+
+    publications {
+        create<MavenPublication>(project.name) {
+            from(components["kotlin"])
 
             this.groupId = project.group.toString()
             this.artifactId = project.name
@@ -62,60 +93,15 @@ kotlin {
                     }
                 }
 
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
                 url.set(githubUrl)
-
-            }
-
-        }
-    }
-}
-
-publishing {
-    repositories {
-        maven("https://maven.pkg.github.com/bluefireoly/SimpleKotlinMail") {
-            name = "GitHubPackages"
-            credentials {
-                username = project.findProperty("github.username") as? String ?: ""
-                password = project.findProperty("github.api_key") as? String ?: ""
             }
         }
     }
 }
-
-/*
- * BUILD
- */
-
-java {
-    withSourcesJar()
-    withJavadocJar()
-}
-
-/*
- * PUBLISHING
- */
-
-/*
-bintray {
-
-    user = project.findProperty("bintray.username") as? String ?: ""
-    key = project.findProperty("bintray.api_key") as? String ?: ""
-
-    setPublications("jvm")
-
-    pkg.apply {
-
-        repo = repoName
-        name = project.name
-
-        version.name = project.version.toString()
-        version.released = Date().toString()
-
-        setLicenses("Apache-2.0")
-
-        vcsUrl = githubUrl
-
-    }
-
-}
-*/
