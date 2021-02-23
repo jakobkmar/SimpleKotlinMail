@@ -15,7 +15,7 @@ object Versions {
  */
 
 group = "net.axay"
-version = "1.3.1"
+version = "1.3.2"
 
 description = "A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects"
 
