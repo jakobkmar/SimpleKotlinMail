@@ -2,11 +2,11 @@
 
 ## Repository
 
-SimpleKotlinMail is available on jcenter.
+SimpleKotlinMail is available on Maven Central.
 
 ```kotlin
 repositories {
-    jcenter()
+    mavenCentral()
 }
 ```
 
