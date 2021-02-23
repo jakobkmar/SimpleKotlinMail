@@ -13,19 +13,9 @@ plugins {
  * DEPENDENCY MANAGEMENT
  */
 
-kotlin {
-    sourceSets {
-        val jvmMain by getting {
+dependencies {
+    implementation(project(":${rootProject.name}-core"))
 
-            dependencies {
-
-                implementation(project(":${rootProject.name}-core"))
-
-                // SUBETHA SMTP
-                api("com.github.davidmoten:subethasmtp:5.2.8")
-
-            }
-
-        }
-    }
+    // SUBETHA SMTP
+    api("com.github.davidmoten:subethasmtp:5.2.8")
 }

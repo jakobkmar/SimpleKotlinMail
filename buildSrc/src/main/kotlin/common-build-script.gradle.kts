@@ -17,6 +17,8 @@ object Versions {
 group = "net.axay"
 version = "1.3.1"
 
+description = "A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects"
+
 repositories {
     mavenCentral()
     jcenter()
@@ -28,7 +30,7 @@ repositories {
 
 plugins {
 
-    kotlin("multiplatform")
+    kotlin("jvm")
 
     `java-library`
 
@@ -38,12 +40,6 @@ plugins {
 
     signing
 
-}
-
-kotlin {
-    jvm {
-        withJava()
-    }
 }
 
 /*
@@ -76,14 +72,13 @@ publishing {
 
     publications {
         create<MavenPublication>(project.name) {
-            from(components["kotlin"])
+            from(components["java"])
 
             this.groupId = project.group.toString()
             this.artifactId = project.name
             this.version = project.version.toString()
 
             pom {
-
                 name.set(project.name)
                 description.set(project.description)
 
@@ -101,6 +96,11 @@ publishing {
                 }
 
                 url.set(githubUrl)
+
+                scm {
+                    connection.set("scm:git:git://github.com/bluefireoly/SimpleKotlinMail.git")
+                    url.set("https://github.com/bluefireoly/SimpleKotlinMail/tree/main")
+                }
             }
         }
     }

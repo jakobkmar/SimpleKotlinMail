@@ -15,18 +15,8 @@ plugins {
  * DEPENDENCY MANAGEMENT
  */
 
-kotlin {
-    sourceSets {
-        val jvmMain by getting {
+dependencies {
+    implementation(project(":${rootProject.name}-core"))
 
-            dependencies {
-
-                implementation(project(":${rootProject.name}-core"))
-
-                api("org.simplejavamail:batch-module:${Versions.simpleJavaMail}")
-
-            }
-
-        }
-    }
+    api("org.simplejavamail:batch-module:${Versions.simpleJavaMail}")
 }
