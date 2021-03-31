@@ -21,7 +21,6 @@ fun SMTPServerBuilder.setupTLS(
     requireClientAuth: Boolean = true,
     socketBuilder: (SSLSocket.() -> Unit)? = null
 ) {
-
     if (requireTLS) builder.requireTLS() else builder.enableTLS()
 
     builder.startTlsSocketFactory { socketIn ->
@@ -45,5 +44,4 @@ fun SMTPServerBuilder.setupTLS(
             socketBuilder?.invoke(this)
         }
     }
-
 }

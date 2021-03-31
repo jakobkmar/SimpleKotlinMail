@@ -5,7 +5,6 @@ import org.subethamail.smtp.MessageContext
 import org.subethamail.smtp.RejectException
 
 abstract class IncomingMailExchange(val context: MessageContext) {
-
     private var ifReject = false
     private var rejectMessage: String? = null
     private var rejectCode: Int? = null
@@ -46,6 +45,5 @@ abstract class IncomingMailExchange(val context: MessageContext) {
         throwSpecificExceptions()
     }
 
-    protected open fun throwSpecificExceptions() {}
-
+    protected open fun throwSpecificExceptions() { }
 }

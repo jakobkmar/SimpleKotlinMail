@@ -7,7 +7,6 @@ import kotlinx.coroutines.launch
 import org.simplejavamail.api.mailer.Mailer
 
 object MailerManager {
-
     private val LOCAL_MAILER by lazy { mailerBuilder("localhost", 25) }
 
     private var DEFAULT_MAILER: Mailer? = null
@@ -47,5 +46,4 @@ object MailerManager {
             shutdownJobs.forEach { it.join() }
         }
     }
-
 }

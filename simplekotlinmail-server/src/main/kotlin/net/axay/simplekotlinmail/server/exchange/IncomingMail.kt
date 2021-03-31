@@ -13,7 +13,6 @@ class IncomingMail internal constructor(
     val email: Email,
     context: MessageContext
 ) : IncomingMailExchange(context) {
-
     internal var response: String? = null
 
     private var ifTooMuchData = false
@@ -41,5 +40,4 @@ class IncomingMail internal constructor(
                 throw TooMuchDataException(tooMuchDataMessage)
             else throw TooMuchDataException()
     }
-
 }
