@@ -18,8 +18,8 @@ dependencies {
     api("org.simplejavamail:smime-module:${Versions.simpleJavaMail}")
 
     // COROUTINES
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 
     // SERIALIZATION
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
 }

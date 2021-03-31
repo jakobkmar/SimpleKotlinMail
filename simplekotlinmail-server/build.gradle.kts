@@ -7,5 +7,5 @@ plugins {
 dependencies {
     implementation(project(":${rootProject.name}-core"))
 
-    api("com.github.davidmoten:subethasmtp:5.2.8")
+    api("com.github.davidmoten:subethasmtp:6.0.0")
 }
