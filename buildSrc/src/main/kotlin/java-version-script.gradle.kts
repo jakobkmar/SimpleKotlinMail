@@ -9,10 +9,6 @@ plugins {
     `java-library`
 }
 
-/*
- * BUILD
- */
-
 java {
     java.sourceCompatibility = jvmVersion
     java.targetCompatibility = jvmVersion
@@ -21,9 +17,5 @@ java {
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = jvmVersionString
 }
-
-/*
- * EXTENSIONS
- */
 
 val JavaVersion.versionString: String get() = if (majorVersion.toInt() <= 10) "1.$majorVersion" else majorVersion

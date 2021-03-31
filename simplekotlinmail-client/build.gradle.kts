@@ -1,19 +1,10 @@
-@file:Suppress("UNUSED_VARIABLE")
-
 import Common_build_script_gradle.*
-
-/**
- * PLUGINS
- */
 
 plugins {
     `common-build-script`
     `java-version-script`
+    `maven-publish-script`
 }
-
-/**
- * DEPENDENCY MANAGEMENT
- */
 
 dependencies {
     implementation(project(":${rootProject.name}-core"))

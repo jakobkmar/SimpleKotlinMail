@@ -1,18 +1,11 @@
-@file:Suppress("UNUSED_VARIABLE")
-
 import Common_build_script_gradle.*
 
-/**
- * PLUGINS
- */
-
 plugins {
-
     `common-build-script`
     `java-version-script`
+    `maven-publish-script`
 
-    kotlin("plugin.serialization") version "1.4.30"
-
+    kotlin("plugin.serialization") version "1.4.32"
 }
 
 /**

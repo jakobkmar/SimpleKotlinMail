@@ -1,14 +1,11 @@
 # Gradle
 .gradle/
 */.gradle/
-*/build/
 build/
+*/build/
 
 # IntelliJ IDEA
 .idea/
 
 # MkDocs
 guide/site/
-
-# Secret
-gradle.properties

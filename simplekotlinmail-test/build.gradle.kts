@@ -1,13 +1,5 @@
-/*
- * PROJECT
- */
-
 group = "net.axay"
 version = "unspecified"
-
-/*
- * PLUGINS
- */
 
 plugins {
     `java-version-script`
