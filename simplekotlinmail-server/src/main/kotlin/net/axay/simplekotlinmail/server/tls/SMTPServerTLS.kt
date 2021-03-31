@@ -8,16 +8,19 @@ import javax.net.ssl.SSLSocket
 /**
  * Setup TLS for this smtp server.
  *
- * @param tlsContext The SSLContext for creating a SSLSocket. Use [TLSContext] to easily create a new context
- * @param requireTLS If true, TLS required for every mail exchange.
- * @param protocolVersions The TLS protocol versions you wish to enable.
+ * @param tlsContext the SSLContext for creating a SSLSocket - use [TLSContext] to easily create a new context
+ * @param requireTLS if true, TLS required for every mail exchange
+ * @param protocolVersions the TLS protocol versions you wish to enable
+ * @param overrideCipherSuites if true, the default enabled cipher suites will be replaced with
+ * the cipher suites chosen by SimpleKotlinMail - you can see them here: [TLSVersions]
  * @param requireClientAuth [SSLSocket.setNeedClientAuth]
- * @param socketBuilder (optional) Use this builder to configure the SSLSocket
+ * @param socketBuilder (optional) use this builder to configure the SSLSocket
  */
 fun SMTPServerBuilder.setupTLS(
     tlsContext: SSLContext,
     requireTLS: Boolean = false,
     protocolVersions: List<TLSVersions> = listOf(TLSVersions.TLS_1_3, TLSVersions.TLS_1_2),
+    overrideCipherSuites: Boolean = false,
     requireClientAuth: Boolean = true,
     socketBuilder: (SSLSocket.() -> Unit)? = null
 ) {
@@ -34,10 +37,12 @@ fun SMTPServerBuilder.setupTLS(
                         .mapTo(LinkedHashSet()) { it.protocolVersion } intersect supportedProtocols.toList()
                     ).toTypedArray()
 
-            enabledCipherSuites = (
-                    protocolVersions
-                        .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
-                    ).toTypedArray()
+            if (overrideCipherSuites) {
+                enabledCipherSuites = (
+                        protocolVersions
+                            .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
+                        ).toTypedArray()
+            }
 
             needClientAuth = requireClientAuth
 
