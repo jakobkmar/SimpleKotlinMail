@@ -5,19 +5,17 @@ import net.axay.simplekotlinmail.server.start
 import org.junit.jupiter.api.Test
 
 class ServerTest {
-
     @Test
     fun startServerKeepAliveTrue() {
-        val smtpServer = smtpServer()
+        val smtpServer = smtpServer(2500)
         assert(smtpServer.start(keepAlive = true).isRunning)
         smtpServer.stop()
     }
 
     @Test
     fun startServerKeepAliveFalse() {
-        val smtpServer = smtpServer()
+        val smtpServer = smtpServer(2500)
         assert(smtpServer.start(keepAlive = false).isRunning)
         smtpServer.stop()
     }
-
 }
