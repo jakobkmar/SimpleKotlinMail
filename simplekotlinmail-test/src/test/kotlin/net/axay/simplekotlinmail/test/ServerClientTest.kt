@@ -52,8 +52,8 @@ class ServerClientTest {
         val smtpServer = smtpServer {
             setupTLS(
                 TLSContext(
-                    File("./src/jvmTest/resources/keystore"), "passphrase",
-                    File("./src/jvmTest/resources/truststore"), "passphrase"
+                    File("./src/test/resources/keystore"), "passphrase",
+                    File("./src/test/resources/truststore"), "passphrase"
                 ),
                 true,
                 requireClientAuth = false

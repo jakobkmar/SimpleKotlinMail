@@ -1,5 +1,7 @@
 val githubProject = "bluefireoly/SimpleKotlinMail"
 
+description = "A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects"
+
 plugins {
     kotlin("jvm")
     `java-library`
@@ -9,6 +11,11 @@ plugins {
 
 signing {
     sign(publishing.publications)
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 publishing {

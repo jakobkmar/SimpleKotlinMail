@@ -1,48 +1,19 @@
-group = "net.axay"
-version = "unspecified"
-
 plugins {
+    `common-build-script`
     `java-version-script`
-
-    kotlin("multiplatform")
 }
 
-/**
- * DEPENDENCY MANAGEMENT
- */
+dependencies {
+    implementation(project(":${rootProject.name}-core"))
+    implementation(project(":${rootProject.name}-client"))
+    implementation(project(":${rootProject.name}-server"))
+    implementation(project(":${rootProject.name}-html"))
 
-repositories {
-    mavenCentral()
-    jcenter()
+    implementation("org.slf4j:slf4j-simple:1.7.30")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
 }
 
-kotlin {
-    jvm {
-        withJava()
-    }
-
-    sourceSets {
-        val jvmTest by getting {
-
-            dependencies {
-
-                implementation("org.junit.jupiter:junit-jupiter:5.7.0")
-
-                implementation(project(":${rootProject.name}-core"))
-                implementation(project(":${rootProject.name}-client"))
-                implementation(project(":${rootProject.name}-server"))
-                implementation(project(":${rootProject.name}-html"))
-
-                implementation("org.slf4j:slf4j-simple:1.7.30")
-
-            }
-
-        }
-    }
-}
-
-// JUNIT
-
-tasks.withType<Test> {
+tasks.test {
     useJUnitPlatform()
 }

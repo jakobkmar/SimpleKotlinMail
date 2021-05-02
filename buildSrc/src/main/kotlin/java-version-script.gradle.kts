@@ -1,21 +1,13 @@
-import org.gradle.api.JavaVersion
-import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-val jvmVersion = JavaVersion.VERSION_11
-val jvmVersionString = jvmVersion.versionString
 
 plugins {
     `java-library`
 }
 
-java {
-    java.sourceCompatibility = jvmVersion
-    java.targetCompatibility = jvmVersion
+tasks.withType<JavaCompile> {
+    options.release.set(11)
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = jvmVersionString
+    kotlinOptions.jvmTarget = "11"
 }
-
-val JavaVersion.versionString: String get() = if (majorVersion.toInt() <= 10) "1.$majorVersion" else majorVersion
