@@ -1,5 +1,5 @@
 object Versions {
-    const val simpleJavaMail = "6.5.0"
+    const val simpleJavaMail = "6.5.2"
 }
 
 val repoName = "SimpleKotlinMail"
@@ -11,7 +11,6 @@ description = "A simple, modern and coroutine based Kotlin Email API, supporting
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 plugins {
