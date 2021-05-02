@@ -34,21 +34,21 @@ class SMTPServerBuilder internal constructor(port: Int) {
     var connectionTimeout: Pair<Int, TimeUnit> = 1000 * 60 * 1 to TimeUnit.MILLISECONDS
 
     /**
-     * Set the FromListener for this SMTPServer.
+     * Set the [FromListener] for this SMTPServer.
      */
     fun fromListener(listener: FromListener) {
         fromListener = listener
     }
 
     /**
-     * Set the RecipientListener for this SMTPServer.
+     * Set the [RecipientListener] for this SMTPServer.
      */
     fun recipientListener(listener: RecipientListener) {
         recipientListener = listener
     }
 
     /**
-     * Set the MailListener for this SMTPServer.
+     * Set the [MailListener] for this SMTPServer.
      */
     fun mailListener(listener: MailListener) {
         mailListener = listener
