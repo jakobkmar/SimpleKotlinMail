@@ -54,7 +54,6 @@ class ServerClientTest {
                     File("./src/test/resources/truststore"), "passphrase"
                 ),
                 true,
-                starttlsOnly = false,
                 requireClientAuth = false
             )
 
@@ -70,7 +69,7 @@ class ServerClientTest {
         email.sendSync(mailerBuilder(port = 2500) {
             verifyingServerIdentity(false)
             trustingAllHosts(true)
-            withTransportStrategy(TransportStrategy.SMTPS)
+            withTransportStrategy(TransportStrategy.SMTP_TLS)
         })
 
         MailerManager.shutdownMailers()
