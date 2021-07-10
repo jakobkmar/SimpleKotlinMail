@@ -1,6 +1,7 @@
 package net.axay.simplekotlinmail.server
 
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.subethamail.smtp.server.SMTPServer
@@ -13,6 +14,8 @@ import org.subethamail.smtp.server.SMTPServer
 fun smtpServer(port: Int = 25, builder: SMTPServerBuilder.() -> Unit = {}): SMTPServer =
     SMTPServerBuilder(port).apply(builder).build()
 
+private val serverScope = CoroutineScope(Dispatchers.IO)
+
 /**
  * @param keepAlive true, if the current thread should be kept alive until
  * the SMTPServer was shut down
@@ -22,7 +25,7 @@ fun SMTPServer.start(keepAlive: Boolean): SMTPServer {
     if (keepAlive)
         this@start.start()
     else runBlocking {
-        GlobalScope.launch {
+        serverScope.launch {
             this@start.start()
         }.join()
     }
