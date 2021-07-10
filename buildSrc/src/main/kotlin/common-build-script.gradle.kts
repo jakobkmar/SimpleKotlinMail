@@ -1,5 +1,5 @@
 object Versions {
-    const val simpleJavaMail = "6.5.2"
+    const val simpleJavaMail = "6.6.1"
 }
 
 group = "net.axay"
