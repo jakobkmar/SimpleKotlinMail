@@ -15,9 +15,6 @@ class IncomingMail internal constructor(
 ) : IncomingMailExchange(context) {
     internal var response: String? = null
 
-    private var ifTooMuchData = false
-    private var tooMuchDataMessage: String? = null
-
     /**
      * Set a custom response success message.
      */
@@ -29,15 +26,6 @@ class IncomingMail internal constructor(
      * Reject the message if an input stream provides
      * more data than the listener can handle
      */
-    fun tooMuchData(message: String? = null) {
-        ifTooMuchData = true
-        tooMuchDataMessage = message
-    }
-
-    override fun throwSpecificExceptions() {
-        if (ifTooMuchData)
-            if (tooMuchDataMessage != null)
-                throw TooMuchDataException(tooMuchDataMessage)
-            else throw TooMuchDataException()
-    }
+    fun tooMuchData(message: String? = null): Nothing =
+        if (message != null) throw TooMuchDataException(message) else throw TooMuchDataException()
 }

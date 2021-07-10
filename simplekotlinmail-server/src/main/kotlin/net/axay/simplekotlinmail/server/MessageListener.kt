@@ -37,7 +37,6 @@ class MailHandler(
         if (fromListener != null) {
             val incomingFrom = IncomingFrom(from, context)
             fromListener.invoke(incomingFrom)
-            incomingFrom.throwExceptions()
         }
     }
 
@@ -47,7 +46,6 @@ class MailHandler(
         if (recipientListener != null) {
             val incomingRecipient = IncomingRecipient(from, recipient, recipients, context)
             recipientListener.invoke(incomingRecipient)
-            incomingRecipient.throwExceptions()
         }
     }
 
@@ -55,7 +53,6 @@ class MailHandler(
         return if (mailListener != null) {
             val incomingMail = IncomingMail(from, recipients, EmailConverter.emlToEmail(data), context)
             mailListener.invoke(incomingMail)
-            incomingMail.throwExceptions()
 
             incomingMail.response
         } else null
