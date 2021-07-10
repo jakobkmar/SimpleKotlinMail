@@ -3,7 +3,6 @@ package net.axay.simplekotlinmail.server.tls
 import net.axay.simplekotlinmail.server.SMTPServerBuilder
 import java.net.InetSocketAddress
 import javax.net.ssl.SSLContext
-import javax.net.ssl.SSLServerSocket
 import javax.net.ssl.SSLSocket
 
 /**
@@ -15,9 +14,6 @@ import javax.net.ssl.SSLSocket
  * @param overrideCipherSuites if true, the default enabled cipher suites will be replaced with
  * the cipher suites chosen by SimpleKotlinMail - you can see them here: [TLSVersions]
  * @param requireClientAuth [SSLSocket.setNeedClientAuth]
- * @param starttlsOnly enable this, if you wish to only use the sometimes deprecated STARTTLS
- * variant of TLS
- * @param tlsSocketBuilder use this builder to configure the TLS socket
  * @param starttlsSocketBuilder use this builder to configure the STARTTLS socket
  */
 fun SMTPServerBuilder.setupTLS(
@@ -26,33 +22,9 @@ fun SMTPServerBuilder.setupTLS(
     protocolVersions: Array<TLSVersions> = arrayOf(TLSVersions.TLS_1_3, TLSVersions.TLS_1_2),
     overrideCipherSuites: Boolean = false,
     requireClientAuth: Boolean = true,
-    starttlsOnly: Boolean = false,
-    tlsSocketBuilder: (SSLServerSocket.() -> Unit)? = null,
     starttlsSocketBuilder: (SSLSocket.() -> Unit)? = null,
 ) {
     if (requireTLS) builder.requireTLS() else builder.enableTLS()
-
-    if (!starttlsOnly) builder.serverSocketFactory {
-        (tlsContext.serverSocketFactory.createServerSocket() as SSLServerSocket).apply {
-            useClientMode = false
-
-            enabledProtocols = (
-                    protocolVersions
-                        .mapTo(LinkedHashSet()) { it.protocolVersion } intersect supportedProtocols.toList()
-                    ).toTypedArray()
-
-            if (overrideCipherSuites) {
-                enabledCipherSuites = (
-                        protocolVersions
-                            .flatMapTo(LinkedHashSet()) { it.cipherSuites } intersect supportedCipherSuites.toList()
-                        ).toTypedArray()
-            }
-
-            needClientAuth = requireClientAuth
-
-            tlsSocketBuilder?.invoke(this)
-        }
-    }
 
     builder.startTlsSocketFactory { socketIn ->
         (tlsContext.socketFactory.createSocket(
