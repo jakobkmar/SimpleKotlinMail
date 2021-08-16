@@ -9,7 +9,7 @@ _SimpleKotlinMail is a Kotlin Mail API, using Kotlin Coroutines all the way thro
 - receive and process emails
 - TLS support
 
-## To get started, visit the **[Documentation](https://bluefireoly.github.io/SimpleKotlinMail/)**.
+## To get started, visit the **[Documentation](https://jakobkmar.github.io/SimpleKotlinMail/)**.
 
 ## Examples
 
@@ -74,7 +74,7 @@ emailBuilder {
 
 ### And more
 
-To learn more about SimpleKotlinMail, visit the **[Documentation](https://bluefireoly.github.io/SimpleKotlinMail/)**.
+To learn more about SimpleKotlinMail, visit the **[Documentation](https://jakobkmar.github.io/SimpleKotlinMail/)**.
 
 ## Project information
 
