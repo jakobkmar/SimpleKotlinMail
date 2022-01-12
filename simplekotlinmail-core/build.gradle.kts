@@ -3,21 +3,13 @@ plugins {
     `java-version-script`
     `maven-publish-script`
 
-    libs.plugins.kt.serialization
+    kotlin("plugin.serialization")
 }
 
-/**
- * DEPENDENCY MANAGEMENT
- */
-
 dependencies {
-    // SIMPLE JAVA MAIL
     api(libs.simpleJavaMail)
     api(libs.simpleJavaMail.smime)
 
-    // COROUTINES
     api(libs.kt.coroutines)
-
-    // SERIALIZATION
     api(libs.kt.serialization)
 }
