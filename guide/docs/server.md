@@ -14,13 +14,12 @@ val smtpServer = smtpServer(port = 25) {
 
 Now you can start the SMTPServer
 ```kotlin
-// keep the current thread alive (non-blocking)
-smtpServer.start(keepAlive = true)
-// or don't keep the current thread alive
-smtpServer.start(keepAlive = false)
+// this function does not block,
+// but it keeps the current thread alive until you call stop()
+smtpServer.start()
 ```
 
-It is good practice stopping the SMTPServer
+It is good practice to stop the SMTPServer
 ```kotlin
 smtpServer.stop()
 ```

@@ -1,7 +1,6 @@
 site_name: SimpleKotlinMail
 site_description: A simple, modern and coroutine based Kotlin Email API, supporting both clientside and serverside projects
 site_author: Jakob K
-copyright: Copyright © (2021) - Jakob K
 
 theme:
   name: material
@@ -22,8 +21,8 @@ markdown_extensions:
       permalink: true
       toc_depth: 4
 
-repo_url: https://github.com/bluefireoly/SimpleKotlinMail
-repo_name: bluefireoly/SimpleKotlinMail
+repo_url: https://github.com/jakobkmar/SimpleKotlinMail
+repo_name: jakobkmar/SimpleKotlinMail
 
 edit_uri: edit/main/guide/docs/
 

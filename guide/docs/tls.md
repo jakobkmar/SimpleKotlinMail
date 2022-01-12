@@ -1,6 +1,10 @@
 # TLS
 
-TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) allows you to secure the Simple Mail Transfer Protocol.
+TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)) allows you to secure the Simple
+Mail Transfer Protocol.
+
+**You probably want to [let your proxy handle TLS](https://docs.nginx.com/nginx/admin-guide/mail-proxy/mail-proxy/),
+this guide is for TLS in tests.**
 
 ## TLSContext (SSLContext)
 
@@ -13,7 +17,8 @@ val tlsContext = TLSContext(
 )
 ```
 
-If you need a keystore and truststore for **testing purposes**, you can download both [from the OpenJDK repository](https://github.com/openjdk/jdk/tree/master/test/jdk/javax/net/ssl/etc).
+If you need a keystore and truststore for **testing purposes**, you can download
+both [from the OpenJDK repository](https://github.com/openjdk/jdk/tree/master/test/jdk/javax/net/ssl/etc).
 
 ## Secure the SMTP server
 
@@ -28,6 +33,7 @@ smtpServer {
 _Currently, TLSv1.3 and TLSv1.2 are enabled by default, but you can change that (example below)._
 
 or if you need more options
+
 ```kotlin
 setupTLS(
     tlsContext,

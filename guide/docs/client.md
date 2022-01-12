@@ -42,26 +42,26 @@ email.send() // using the defult Mailer instance
 email.send(mailer)
 ```
 
-With the `send` function you can specify two suspending callbacks:
-```kotlin
-email.send(
-    onException = {
-        it.printStackTrace()
-    },
-    onSuccess = {
-        println("I just sent an email!")
-    }
-)
-```
 ###### Suspend until completion
 
+The send function returns a `Job`, therefore you can just join it.
+
 ```kotlin
-email.send(awaitCompletion = true)
+email.send().join()
+```
+
+This can thrown an exception of the delivery failed, you can handle that like this:
+
+```kotlin
+kotlin.runCatching { email.send().join() }
+    .onFailure { it.printStackTrace() }
+    .onSuccess { println("I just sent an email!") }
 ```
 
 ##### Synchronously
 
-If you need to send your emails synchronously for some reason, you can do that. This function does not provide any callbacks like onSuccess or onException - instead it will throw an exception if the action fails, otherwise (on success) it will just pass.
+If you need to send your emails synchronously for some reason, you can do that.
+This function will throw an exception if the action fails, otherwise (on success) it will just pass.
 
 ```kotlin
 email.sendSync() // using the defult Mailer instance
