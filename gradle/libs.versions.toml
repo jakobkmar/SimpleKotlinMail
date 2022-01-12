@@ -1,0 +1,25 @@
+[versions]
+
+kotlin = "1.6.10"
+kotlinSerialization = "1.3.2"
+kotlinCoroutines = "1.6.0"
+kotlinHtml = "0.7.3"
+
+simpleJavaMail = "6.6.1"
+
+subethasmtp = "5.2.8"
+
+[libraries]
+
+simpleJavaMail = { module = "org.simplejavamail:simple-java-mail", version.ref = "simpleJavaMail" }
+simpleJavaMail-batch = { module = "org.simplejavamail:batch-module", version.ref = "simpleJavaMail" }
+simpleJavaMail-smime = { module = "org.simplejavamail:smime-module", version.ref = "simpleJavaMail" }
+kt-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kt-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
+kt-html = { module = "org.jetbrains.kotlinx:kotlinx-html-jvm", version.ref = "kotlinHtml" }
+subethasmtp = { module = "com.github.davidmoten:subethasmtp", version.ref = "subethasmtp" }
+
+[plugins]
+
+kt-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kt-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
