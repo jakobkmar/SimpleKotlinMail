@@ -1,8 +1,8 @@
 package net.axay.simplekotlinmail.email
 
+import jakarta.mail.internet.MimeMessage
 import org.simplejavamail.api.email.Email
 import org.simplejavamail.converter.EmailConverter
-import javax.mail.internet.MimeMessage
 
 // TO EMAIL
 
