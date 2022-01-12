@@ -9,9 +9,8 @@ dependencies {
     implementation(project(":${rootProject.name}-server"))
     implementation(project(":${rootProject.name}-html"))
 
-    implementation("org.slf4j:slf4j-simple:1.7.30")
-
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
+    testImplementation("org.slf4j:slf4j-simple:1.7.32")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 }
 
 tasks.test {
