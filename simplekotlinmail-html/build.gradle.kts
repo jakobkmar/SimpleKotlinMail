@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":${rootProject.name}-core"))
+    api(project(":${rootProject.name}-core"))
 
-    api("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+    api(libs.kt.html)
 }

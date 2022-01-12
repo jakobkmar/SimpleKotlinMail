@@ -1,11 +1,9 @@
-import Common_build_script_gradle.*
-
 plugins {
     `common-build-script`
     `java-version-script`
     `maven-publish-script`
 
-    kotlin("plugin.serialization") version "1.5.20"
+    libs.plugins.kt.serialization
 }
 
 /**
@@ -14,12 +12,12 @@ plugins {
 
 dependencies {
     // SIMPLE JAVA MAIL
-    api("org.simplejavamail:simple-java-mail:${Versions.simpleJavaMail}")
-    api("org.simplejavamail:smime-module:${Versions.simpleJavaMail}")
+    api(libs.simpleJavaMail)
+    api(libs.simpleJavaMail.smime)
 
     // COROUTINES
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+    api(libs.kt.coroutines)
 
     // SERIALIZATION
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+    api(libs.kt.serialization)
 }

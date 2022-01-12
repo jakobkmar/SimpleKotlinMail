@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":${rootProject.name}-core"))
+    api(project(":${rootProject.name}-core"))
 
-    api("com.github.davidmoten:subethasmtp:5.2.8")
+    api(libs.subethasmtp)
 }
