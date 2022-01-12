@@ -14,6 +14,7 @@ simpleJavaMail = { module = "org.simplejavamail:simple-java-mail", version.ref =
 simpleJavaMail-batch = { module = "org.simplejavamail:batch-module", version.ref = "simpleJavaMail" }
 simpleJavaMail-smime = { module = "org.simplejavamail:smime-module", version.ref = "simpleJavaMail" }
 kt-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kt-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinCoroutines" }
 kt-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 kt-html = { module = "org.jetbrains.kotlinx:kotlinx-html-jvm", version.ref = "kotlinHtml" }
 subethasmtp = { module = "com.github.davidmoten:subethasmtp", version.ref = "subethasmtp" }

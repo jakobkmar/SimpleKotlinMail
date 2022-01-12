@@ -3,6 +3,7 @@ package net.axay.simplekotlinmail.test
 import kotlinx.coroutines.runBlocking
 import net.axay.simplekotlinmail.delivery.MailerManager
 import net.axay.simplekotlinmail.delivery.mailerBuilder
+import net.axay.simplekotlinmail.delivery.send
 import net.axay.simplekotlinmail.delivery.sendSync
 import net.axay.simplekotlinmail.email.emailBuilder
 import net.axay.simplekotlinmail.server.smtpServer
@@ -38,7 +39,10 @@ class ServerClientTest {
 
         smtpServer.start(keepAlive = true)
 
-        email.sendSync(mailerBuilder(port = 2500))
+        MailerManager.defaultMailer = mailerBuilder(port = 2500)
+
+        email.sendSync()
+        email.send().join()
 
         MailerManager.shutdownMailers()
 
@@ -66,11 +70,14 @@ class ServerClientTest {
 
         smtpServer.start(keepAlive = true)
 
-        email.sendSync(mailerBuilder(port = 2500) {
+        MailerManager.defaultMailer = mailerBuilder(port = 2500) {
             verifyingServerIdentity(false)
             trustingAllHosts(true)
             withTransportStrategy(TransportStrategy.SMTP_TLS)
-        })
+        }
+
+        email.sendSync()
+        email.send().join()
 
         MailerManager.shutdownMailers()
 

@@ -10,6 +10,5 @@ dependencies {
     api(libs.simpleJavaMail)
     api(libs.simpleJavaMail.smime)
 
-    api(libs.kt.coroutines)
     api(libs.kt.serialization)
 }

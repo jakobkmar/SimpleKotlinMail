@@ -7,5 +7,7 @@ plugins {
 dependencies {
     api(project(":${rootProject.name}-core"))
 
+    api(libs.kt.coroutines)
+
     api(libs.subethasmtp)
 }
