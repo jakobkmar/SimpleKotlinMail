@@ -64,7 +64,7 @@ If you need to send your emails synchronously for some reason, you can do that.
 This function will throw an exception if the action fails, otherwise (on success) it will just pass.
 
 ```kotlin
-email.sendSync() // using the defult Mailer instance
+email.sendSync() // using the default Mailer instance
 // or
 email.sendSync(mailer)
 ```
