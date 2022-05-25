@@ -2,6 +2,8 @@
 
 _SimpleKotlinMail is a Kotlin Mail API, using coroutines and providing DSLs._
 
+This project is **not actively being worked on anymore**, for an explanation and alternatives see https://github.com/jakobkmar/SimpleKotlinMail/issues/6#issuecomment-1082247403 .
+
 ## Features
 
 - build emails
