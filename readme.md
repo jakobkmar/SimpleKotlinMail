@@ -1,8 +1,14 @@
+🟠 **Project deprecation notice**
+
+> This project is **not actively being worked on anymore**.
+>
+> For a more up-to-date Kotlin library have a look at the fork [**Kotlinmailer**](https://github.com/BierDav/Kotlinmailer/)!
+
+---
+
 <img src="simplekotlinmail_logo.svg" width="500" alt="SimpleKotlinMail Logo">
 
 _SimpleKotlinMail is a Kotlin Mail API, using coroutines and providing DSLs._
-
-This project is **not actively being worked on anymore**, for an explanation and alternatives see https://github.com/jakobkmar/SimpleKotlinMail/issues/6#issuecomment-1082247403 .
 
 ## Features
 
